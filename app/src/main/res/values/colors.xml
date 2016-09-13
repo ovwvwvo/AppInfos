@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FF4CAF50</color>
+    <color name="colorPrimaryDark">#FF1B5E20</color>
+    <color name="colorAccent">#FF00C853</color>
+
+    <!--颜色来源 https://www.materialui.co/colors 的值为 500 的颜色-->
+    <array name="colors">
+        <item>#FFF44336</item>
+        <item>#FFE91E63</item>
+        <item>#FF9C27B0</item>
+        <item>#FF673AB7</item>
+        <item>#FF3F51B5</item>
+        <item>#FF2196F3</item>
+        <item>#FF03A9F4</item>
+        <item>#FF00BCD4</item>
+        <item>#FF009688</item>
+        <item>#FF4CAF50</item>
+        <item>#FF8BC34A</item>
+        <item>#FFCDDC39</item>
+        <item>#FFFFEB3B</item>
+        <item>#FFFFC107</item>
+        <item>#FFFF9800</item>
+        <item>#FFFF5722</item>
+        <item>#FF795548</item>
+        <item>#FF9E9E9E</item>
+        <item>#FF607D8B</item>
+    </array>
+
+    <!--颜色来源 https://www.materialui.co/colors 颜色为 Green 列的颜色-->
+    <array name="color_green">
+        <item>#FF4CAF50</item>
+        <item>#FFC8E6C9</item>
+        <item>#FFA5D6A7</item>
+        <item>#FF81C784</item>
+        <item>#FF66BB6A</item>
+        <item>#FF4CAF50</item>
+        <item>#FF43A047</item>
+        <item>#FF388E3C</item>
+        <item>#FF2E7D32</item>
+        <item>#FF1B5E20</item>
+        <item>#FF69F0AE</item>
+        <item>#FF00E676</item>
+        <item>#FF00E676</item>
+        <item>#FF00C853</item>
+    </array>
 </resources>
