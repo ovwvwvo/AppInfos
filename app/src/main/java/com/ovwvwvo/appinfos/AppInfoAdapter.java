@@ -1,4 +1,4 @@
-package com.ovwvwvo.packagenames;
+package com.ovwvwvo.appinfos;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -60,7 +60,7 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
         TextView packageName;
         @BindView(R.id.icon)
         ImageView icon;
-        @BindArray(R.array.color_green)
+        @BindArray(R.array.colors)
         int[] colors;
 
         AppInfoViewHolder(View itemView) {

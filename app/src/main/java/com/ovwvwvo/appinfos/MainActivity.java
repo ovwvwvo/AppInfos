@@ -1,4 +1,4 @@
-package com.ovwvwvo.packagenames;
+package com.ovwvwvo.appinfos;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

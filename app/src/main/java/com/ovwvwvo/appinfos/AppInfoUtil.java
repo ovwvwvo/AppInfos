@@ -1,4 +1,4 @@
-package com.ovwvwvo.packagenames;
+package com.ovwvwvo.appinfos;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
