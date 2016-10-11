@@ -1,8 +1,10 @@
-package com.ovwvwvo.appinfos;
+package com.ovwvwvo.appinfos.util;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+
+import com.ovwvwvo.appinfos.model.AppInfoModel;
 
 import java.util.ArrayList;
 import java.util.List;

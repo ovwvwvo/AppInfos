@@ -1,4 +1,4 @@
-package com.ovwvwvo.appinfos;
+package com.ovwvwvo.appinfos.model;
 
 import android.graphics.drawable.Drawable;
 

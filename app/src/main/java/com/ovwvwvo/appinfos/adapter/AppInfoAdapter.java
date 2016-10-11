@@ -1,4 +1,4 @@
-package com.ovwvwvo.appinfos;
+package com.ovwvwvo.appinfos.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ovwvwvo.appinfos.model.AppInfoModel;
+import com.ovwvwvo.appinfos.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,7 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
 
     @Override
     public void onBindViewHolder(AppInfoViewHolder holder, int position) {
-        holder.cardView.setBackgroundColor(holder.getColor(position));
+//        holder.cardView.setBackgroundColor(holder.getColor(position));
         holder.icon.setImageDrawable(models.get(position).getIcon());
         holder.appName.setText(models.get(position).getAppName());
         holder.packageName.setText(models.get(position).getPackageName());
@@ -44,6 +47,7 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
 
     public void setModels(List<AppInfoModel> models) {
         this.models = models;
+        notifyDataSetChanged();
     }
 
     @Override
