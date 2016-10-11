@@ -3,20 +3,40 @@ apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         applicationId "com.ovwvwvo.appinfos"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 8
+        versionName "0.1.0"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    signingConfigs {//配置签名文件
+        releaseSigning {
+            storeFile file("keystore.jks")
+            storePassword "jia297580"
+            keyAlias "rawer"
+            keyPassword "123456"
+        }
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.releaseSigning
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
     }
 }
 
