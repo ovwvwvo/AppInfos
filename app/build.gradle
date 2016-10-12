@@ -20,9 +20,9 @@ android {
     signingConfigs {//配置签名文件
         releaseSigning {
             storeFile file("keystore.jks")
-            storePassword "jia297580"
+            storePassword "123456"
             keyAlias "rawer"
-            keyPassword "123456"
+            keyPassword "jia297580"
         }
     }
     buildTypes {

@@ -4,10 +4,7 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="128dp"
-    android:layout_marginBottom="16dp"
-    android:layout_marginLeft="2dp"
-    android:layout_marginRight="2dp"
-    android:layout_marginTop="2dp"
+    android:layout_marginTop="16dp"
     android:elevation="64dp"
     tools:ignore="RtlHardcoded">
 
