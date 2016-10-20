@@ -18,18 +18,14 @@ public class AppInfoUtil {
     public static List<AppInfoModel> getAllAppInfos(Context context) {
         List<AppInfoModel> models = new ArrayList<>();
         PackageManager pm = context.getPackageManager();
-//        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
-        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.GET_SHARED_LIBRARY_FILES);
-        //List<PackageInfo> list=pm.getInstalledPackages(PackageManager.GET_META_DATA);
-        //List<PackageInfo> list=pm.getInstalledPackages(0);
-        //List<PackageInfo> list=pm.getInstalledPackages(-10);
-        //List<PackageInfo> list=pm.getInstalledPackages(10000);
+        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.MATCH_SYSTEM_ONLY);
         AppInfoModel appInfoModel;
         for (PackageInfo packageInfo : list) {
             appInfoModel = new AppInfoModel();
             appInfoModel.setAppName(packageInfo.applicationInfo.loadLabel(pm).toString());
             appInfoModel.setPackageName(packageInfo.packageName);
             appInfoModel.setAppIcon(packageInfo.applicationInfo.loadIcon(pm));
+            appInfoModel.setVersionName(packageInfo.versionName);
             models.add(appInfoModel);
         }
         return models;

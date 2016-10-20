@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     RecyclerView recyclerView;
 
     private AppInfoAdapter adapter;
-
     private Subscription subscription;
 
     @Override
@@ -48,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
+        refreshLayout.setColorSchemeResources(R.color.colorAccent);
 
         refreshLayout.setRefreshing(true);
         refreshLayout.setOnRefreshListener(this);

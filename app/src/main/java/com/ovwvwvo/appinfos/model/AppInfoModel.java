@@ -10,6 +10,7 @@ public class AppInfoModel {
     private Drawable icon;
     private String appName;
     private String packageName;
+    private String versionName;
 
     public Drawable getIcon() {
         return icon;
@@ -33,5 +34,25 @@ public class AppInfoModel {
 
     public void setPackageName(String packageName) {
         this.packageName = packageName;
+    }
+
+    public void setIcon(Drawable icon) {
+        this.icon = icon;
+    }
+
+    public String getVersionName() {
+        return versionName;
+    }
+
+    public void setVersionName(String versionName) {
+        this.versionName = versionName;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "appName : \"" + appName + '\"' +
+                ", packageName : \"" + packageName + '\"' +
+                '}';
     }
 }

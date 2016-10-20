@@ -1,16 +1,18 @@
 package com.ovwvwvo.appinfos.adapter;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.R;
+import com.ovwvwvo.appinfos.model.AppInfoModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +27,12 @@ import butterknife.OnClick;
  */
 public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoViewHolder> {
 
+    private Context context;
     private LayoutInflater inflater;
     private List<AppInfoModel> models = new ArrayList<>();
 
     public AppInfoAdapter(Context context) {
+        this.context = context;
         inflater = LayoutInflater.from(context);
     }
 
@@ -56,14 +60,12 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
     }
 
     class AppInfoViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.cardView)
-        CardView cardView;
+        @BindView(R.id.icon)
+        ImageView icon;
         @BindView(R.id.appName)
         TextView appName;
         @BindView(R.id.packageName)
         TextView packageName;
-        @BindView(R.id.icon)
-        ImageView icon;
         @BindArray(R.array.colors)
         int[] colors;
 
@@ -74,7 +76,10 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
 
         @OnClick(R.id.copy)
         void copy() {
-
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("appInfo", models.get(getAdapterPosition()).toString());
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(context, "信息已复制", Toast.LENGTH_SHORT).show();
         }
 
         int getColor(int position) {
