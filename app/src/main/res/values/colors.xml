@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#FF4CAF50</color>
     <color name="colorPrimaryDark">#FF1B5E20</color>
-    <color name="colorAccent">#FF00C853</color>
+    <color name="colorAccent">#FFFF3D00</color>
 
     <!--颜色来源 https://www.materialui.co/colors 的值为 500 的颜色-->
     <array name="colors">
