@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">AppInfos</string>
     <string name="action_settings">Settings</string>
+
+    <string name="system_app">系统应用</string>
+    <string name="my_app">我的应用</string>
 </resources>
