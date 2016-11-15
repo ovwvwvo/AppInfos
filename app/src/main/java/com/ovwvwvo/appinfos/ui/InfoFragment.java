@@ -64,6 +64,7 @@ public class InfoFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         ButterKnife.bind(this, view);
         refreshLayout.setRefreshing(true);
         refreshLayout.setOnRefreshListener(this);
+        refreshLayout.setColorSchemeResources(R.color.colorPrimary);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new AppInfoAdapter(getContext());
         recyclerView.setAdapter(adapter);

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF4CAF50</color>
-    <color name="colorPrimaryDark">#FF1B5E20</color>
+    <color name="colorPrimary">#1d8be7</color>
+    <color name="colorPrimaryDark">@color/colorPrimary</color>
     <color name="colorAccent">#FFFF3D00</color>
+    <color name="color_gray">#93cbfb</color>
 
     <!--颜色来源 https://www.materialui.co/colors 的值为 500 的颜色-->
     <array name="colors">
