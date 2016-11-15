@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 /**
- * Copyright ©2016 by Teambition
+ * Copyright ©2016 by ovwvwvo
  */
 
 public class GuideActivity extends BaseActivity {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Copyright ©2016 by Teambition
+ * Copyright ©2016 by ovwvwvo
  */
 
 public class SettingPreference extends BasePreference {
