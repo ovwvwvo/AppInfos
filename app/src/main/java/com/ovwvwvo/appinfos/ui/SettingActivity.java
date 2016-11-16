@@ -27,7 +27,6 @@ public class SettingActivity extends BaseActivity {
 
     private void initToolBar() {
         setSupportActionBar(toolbar);
-        getActionBar().setDisplayShowTitleEnabled(true);
-        getActionBar().setTitle(getString(R.string.settings));
+        getSupportActionBar().setTitle(getString(R.string.settings));
     }
 }
