@@ -18,7 +18,7 @@ public class AppInfoUtil {
     public static List<AppInfoModel> getAllAppInfos(Context context) {
         List<AppInfoModel> models = new ArrayList<>();
         PackageManager pm = context.getPackageManager();
-        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.MATCH_SYSTEM_ONLY);
+        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.GET_INSTRUMENTATION);
         AppInfoModel appInfoModel;
         for (PackageInfo packageInfo : list) {
             appInfoModel = new AppInfoModel();
