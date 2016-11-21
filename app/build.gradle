@@ -2,8 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion sdkVersion
-    buildToolsVersion supportLibVersion
+
+    compileSdkVersion appCompileSdkVersion
+    buildToolsVersion appBuildToolVersion
 
     defaultConfig {
         applicationId "com.ovwvwvo.appinfos"
@@ -12,6 +13,7 @@ android {
         versionCode appVersionCode
         versionName appVersionName
     }
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -44,11 +46,15 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+
+    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+
+    compile "io.reactivex:rxandroid:$rxVersion"
+    compile "io.reactivex:rxjava:$rxVersion"
+
     compile 'com.android.support:design:24.2.1'
     compile 'com.android.support:cardview-v7:24.2.1'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
-    compile 'com.jakewharton:butterknife:8.4.0'
+
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
 }

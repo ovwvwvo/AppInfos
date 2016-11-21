@@ -16,13 +16,22 @@ allprojects {
     }
 
     ext {
-        sdkVersion = 23
-        supportLibVersion = '24.0.3'
-        appMinSdkVersion = System.getenv("APP_MIN_SDK") ? System.getenv("APP_MIN_SDK").toInteger() : 17
-        appTargetSdkVersion = 23
+        appCompileSdkVersion = 25
+        appBuildToolVersion = '24.0.3'
 
-        appVersionCode =8
-        appVersionName = "0.1.0"
+        appMinSdkVersion = 16
+        appTargetSdkVersion = 24
+
+        appVersionCode = 4
+        appVersionName = "0.1.2"
+
+        appSupportLibVersion = '25.0.1'
+
+        butterknifeVersion='8.4.0'
+
+        retrofitVersion='2.1.0'
+
+        rxVersion='1.1.0'
     }
 }
 
