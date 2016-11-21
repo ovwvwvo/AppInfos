@@ -10,6 +10,8 @@ import android.view.MenuItem;
 
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.HomeAdapter;
+import com.ovwvwvo.common.Base.BaseActivity;
+import com.ovwvwvo.common.mvp.presenter.Presenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +23,11 @@ public class HomeActivity extends BaseActivity {
     TabLayout tabLayout;
     @BindView(R.id.viewPage)
     ViewPager viewPager;
+
+    @Override
+    protected Presenter createPresenter() {
+        return null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

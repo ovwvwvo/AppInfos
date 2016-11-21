@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
 import com.ovwvwvo.appinfos.R;
+import com.ovwvwvo.common.Base.BaseActivity;
+import com.ovwvwvo.common.mvp.presenter.Presenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,6 +18,11 @@ import butterknife.ButterKnife;
 public class SettingActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    @Override
+    protected Presenter createPresenter() {
+        return null;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
