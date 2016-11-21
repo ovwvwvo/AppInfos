@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion sdkVersion
+    buildToolsVersion supportLibVersion
 
     defaultConfig {
         applicationId "com.ovwvwvo.appinfos"
-        minSdkVersion 16
-        targetSdkVersion 24
-        versionCode 8
-        versionName "0.1.0"
+        minSdkVersion appMinSdkVersion
+        targetSdkVersion appTargetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
     }
     lintOptions {
         checkReleaseBuilds false

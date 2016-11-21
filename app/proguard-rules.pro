@@ -41,7 +41,7 @@ public static final int *;
     rx.internal.util.atomic.LinkedQueueNode consumerNode;
 }
 
-#butterknife
+#Butterknife
 -keep class butterknife.** { *; }
 -dontwarn butterknife.internal.**
 -keep class **$$ViewBinder { *; }
