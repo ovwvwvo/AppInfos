@@ -54,4 +54,7 @@ dependencies {
     compile "io.reactivex:rxjava:$rxVersion"
 
     compile 'com.umeng.analytics:analytics:latest.integration'
+
+    compile 'cn.ovwvwvo.android:JLibary:0.1.2'
+
 }
