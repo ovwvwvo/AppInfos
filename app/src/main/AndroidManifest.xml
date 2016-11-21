@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.ovwvwvo.appinfos">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:name=".MainApp"
@@ -32,6 +34,13 @@
         <activity
             android:name=".ui.SettingActivity"
             android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="583294d59f06fd79c2001c2f "/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${Channel_ID}"/>
     </application>
 
 </manifest>
