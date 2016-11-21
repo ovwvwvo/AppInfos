@@ -19,7 +19,7 @@ android {
         abortOnError false
     }
 
-    signingConfigs {//配置签名文件
+    signingConfigs {
         releaseSigning {
             storeFile file("keystore.jks")
             storePassword "123456"
@@ -40,6 +40,17 @@ android {
     }
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+
+    productFlavors {
+        meizu {}
+        qihu {}
+        tencent {}
+        wandoujia {}
+    }
+
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [Channel_ID: name]
     }
 }
 
