@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 android {
+
     compileSdkVersion appCompileSdkVersion
     buildToolsVersion appBuildToolVersion
 
@@ -18,7 +19,7 @@ android {
         abortOnError false
     }
 
-    signingConfigs {//配置签名文件
+    signingConfigs {
         releaseSigning {
             storeFile file("keystore.jks")
             storePassword "123456"
@@ -60,4 +61,15 @@ dependencies {
     compile project(':common')
 
     testCompile 'junit:junit:4.12'
+
+    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+    compile "com.jakewharton:butterknife:$butterknifeVersion"
+
+    compile "io.reactivex:rxandroid:$rxVersion"
+    compile "io.reactivex:rxjava:$rxVersion"
+
+    compile 'com.umeng.analytics:analytics:latest.integration'
+
+    compile 'cn.ovwvwvo.android:JLibary:0.1.2'
+
 }

@@ -18,11 +18,12 @@ allprojects {
     ext {
         appCompileSdkVersion = 25
         appBuildToolVersion = '24.0.3'
+
         appMinSdkVersion = 16
         appTargetSdkVersion = 24
 
-        appVersionCode =8
-        appVersionName = "0.1.0"
+        appVersionCode = 4
+        appVersionName = "0.1.2"
 
         appSupportLibVersion = '25.0.1'
 
