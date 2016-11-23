@@ -15,6 +15,7 @@ import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.model.eventbus.CompleteMessage;
 import com.ovwvwvo.appinfos.model.eventbus.SuccessMessage;
 import com.ovwvwvo.appinfos.util.AppInfoUtil;
+import com.umeng.socialize.UMShareAPI;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -58,6 +59,12 @@ public class HomeActivity extends BaseActivity implements InfoFragment.onCallBac
         if (subscription != null && !subscription.isUnsubscribed()) {
             subscription.unsubscribe();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
