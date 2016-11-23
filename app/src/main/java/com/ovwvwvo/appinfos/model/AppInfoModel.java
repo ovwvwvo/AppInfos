@@ -3,7 +3,7 @@ package com.ovwvwvo.appinfos.model;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by guang on 16/9/13.
+ * Created by ovwvwvo on 16/9/13.
  */
 
 public class AppInfoModel {

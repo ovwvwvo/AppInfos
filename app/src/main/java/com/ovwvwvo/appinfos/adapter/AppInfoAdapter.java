@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by guang on 16/9/1.
+ * Created by ovwvwvo on 16/9/1.
  */
 public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoViewHolder> {
 
