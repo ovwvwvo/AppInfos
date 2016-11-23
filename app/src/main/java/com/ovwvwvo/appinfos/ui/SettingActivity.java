@@ -27,6 +27,5 @@ public class SettingActivity extends BaseActivity {
 
     private void initToolBar() {
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle(getString(R.string.settings));
     }
 }
