@@ -9,4 +9,5 @@
     <string name="my_app">我的应用</string>
 
     <string name="data_error">数据出错!</string>
+    <string name="copy">内容已复制到剪贴板</string>
 </resources>
