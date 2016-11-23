@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/space_small_1"
+            android:layout_marginStart="@dimen/space_small_1"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"/>
+
+        <com.ovwvwvo.common.widget.ClearableEditText
+            android:id="@+id/search_input"
+            style="@style/TextAppearance.T1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/btn_back"
+            android:layout_toRightOf="@id/btn_back"
+            android:background="@null"
+            android:drawableEnd="@drawable/ic_close"
+            android:drawablePadding="@dimen/space_normal"
+            android:drawableRight="@drawable/ic_close"
+            android:gravity="center_vertical"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch"
+            android:inputType="textNoSuggestions"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/space_normal"
+            android:paddingRight="@dimen/space_normal"
+            android:textCursorDrawable="@drawable/bg_custom_cursor"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+</LinearLayout>

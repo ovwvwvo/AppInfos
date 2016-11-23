@@ -7,4 +7,6 @@
 
     <string name="system_app">系统应用</string>
     <string name="my_app">我的应用</string>
+
+    <string name="data_error">数据出错!</string>
 </resources>

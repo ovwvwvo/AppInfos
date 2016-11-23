@@ -51,3 +51,10 @@ public static final int *;
 -keepclasseswithmembernames class * {
     @butterknife.* <methods>;
 }
+
+#eventBus
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }

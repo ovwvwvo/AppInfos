@@ -1,5 +1,6 @@
 package com.ovwvwvo.appinfos.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,23 +10,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppInfoAdapter;
-import com.ovwvwvo.appinfos.model.AppInfoModel;
-import com.ovwvwvo.appinfos.util.AppInfoUtil;
+import com.ovwvwvo.appinfos.model.eventbus.CompleteMessage;
+import com.ovwvwvo.appinfos.model.eventbus.SuccessMessage;
 
-import java.util.List;
-import java.util.concurrent.Callable;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.Observer;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Copyright ©2016 by ovwvwvo
@@ -40,8 +36,9 @@ public class InfoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     private static final String POSITION = "POSITION";
 
-    private Subscription subscription;
+    private onCallBackListener listener;
     private AppInfoAdapter adapter;
+    private HomeActivity activity;
     private int position;
 
     public static InfoFragment newInstance(int position) {
@@ -50,6 +47,18 @@ public class InfoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         bundle.putInt(POSITION, position);
         instance.setArguments(bundle);
         return instance;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = (HomeActivity) context;
+        try {
+            listener = (onCallBackListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(getActivity().getClass().getName()
+                + " must implements interface onCallBackListener");
+        }
     }
 
     @Override
@@ -73,50 +82,33 @@ public class InfoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getData(adapter);
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (subscription != null && !subscription.isUnsubscribed()) {
-            subscription.unsubscribe();
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSuccessEvent(SuccessMessage message) {
+        if (activity != null) {
+            adapter.clearModel();
+            adapter.setModels(activity.models);
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onCompleteEvent(CompleteMessage message) {
+        refreshLayout.setRefreshing(false);
     }
 
     @Override
     public void onRefresh() {
-        getData(adapter);
-    }
-
-    private void getData(final AppInfoAdapter adapter) {
-        Observable<List<AppInfoModel>> dataObservable = Observable.fromCallable(new Callable<List<AppInfoModel>>() {
-            @Override
-            public List<AppInfoModel> call() throws Exception {
-                return AppInfoUtil.getAllAppInfos(getContext());
-            }
-        });
-
-        subscription = dataObservable
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Observer<List<AppInfoModel>>() {
-                @Override
-                public void onCompleted() {
-                    refreshLayout.setRefreshing(false);
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    Toast.makeText(getContext(), "数据出错!", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onNext(List<AppInfoModel> models) {
-                    adapter.setModels(models);
-                }
-            });
+        if (listener != null)
+            listener.onRefresh();
     }
 }

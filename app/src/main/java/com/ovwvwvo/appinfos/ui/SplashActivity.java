@@ -15,5 +15,7 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         startActivity(new Intent(mContext, HomeActivity.class));
         finish();
+
+
     }
 }

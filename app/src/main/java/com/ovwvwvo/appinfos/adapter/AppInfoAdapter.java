@@ -54,6 +54,11 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
         notifyDataSetChanged();
     }
 
+    public void clearModel() {
+        this.models.clear();
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return models.size();
