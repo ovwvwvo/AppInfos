@@ -29,7 +29,7 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class HomeActivity extends BaseActivity implements onCallBackListener {
+public class HomeActivity extends BaseActivity implements InfoFragment.onCallBackListener {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tabLayout)
@@ -78,11 +78,13 @@ public class HomeActivity extends BaseActivity implements onCallBackListener {
             return true;
         } else if (item.getItemId() == R.id.action_search) {
             getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .add(R.id.fragment_container, SearchFragment.newInstance())
-                .addToBackStack(null)
-                .commit();
+                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                    .add(R.id.fragment_container, SearchFragment.newInstance())
+                    .addToBackStack(null)
+                    .commit();
             return true;
+        } else if (item.getItemId() == R.id.action_share) {
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -96,24 +98,24 @@ public class HomeActivity extends BaseActivity implements onCallBackListener {
         });
 
         subscription = dataObservable
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Observer<List<AppInfoModel>>() {
-                @Override
-                public void onCompleted() {
-                    EventBus.getDefault().post(new CompleteMessage());
-                }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<List<AppInfoModel>>() {
+                    @Override
+                    public void onCompleted() {
+                        EventBus.getDefault().post(new CompleteMessage());
+                    }
 
-                @Override
-                public void onError(Throwable e) {
-                    Toast.makeText(mContext, R.string.data_error, Toast.LENGTH_SHORT).show();
-                }
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(mContext, R.string.data_error, Toast.LENGTH_SHORT).show();
+                    }
 
-                @Override
-                public void onNext(List<AppInfoModel> models) {
-                    onDataLoadSuccess(models);
-                }
-            });
+                    @Override
+                    public void onNext(List<AppInfoModel> models) {
+                        onDataLoadSuccess(models);
+                    }
+                });
     }
 
 
@@ -121,8 +123,4 @@ public class HomeActivity extends BaseActivity implements onCallBackListener {
     public void onRefresh() {
         getData();
     }
-}
-
-interface onCallBackListener {
-    void onRefresh();
 }

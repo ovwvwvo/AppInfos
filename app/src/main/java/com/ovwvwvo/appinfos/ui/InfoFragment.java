@@ -111,4 +111,8 @@ public class InfoFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         if (listener != null)
             listener.onRefresh();
     }
+
+    public interface onCallBackListener {
+        void onRefresh();
+    }
 }
