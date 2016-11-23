@@ -17,7 +17,6 @@ import com.ovwvwvo.appinfos.model.eventbus.SuccessMessage;
 import com.ovwvwvo.appinfos.util.AppInfoUtil;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -66,6 +65,7 @@ public class HomeActivity extends BaseActivity implements onCallBackListener {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
     public void onDataLoadSuccess(List<AppInfoModel> models) {
         this.models = models;
         EventBus.getDefault().post(new SuccessMessage());

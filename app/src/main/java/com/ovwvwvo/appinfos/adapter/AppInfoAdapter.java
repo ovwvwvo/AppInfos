@@ -17,7 +17,6 @@ import com.ovwvwvo.appinfos.model.AppInfoModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -43,7 +42,6 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
 
     @Override
     public void onBindViewHolder(AppInfoViewHolder holder, int position) {
-//        holder.cardView.setBackgroundColor(holder.getColor(position));
         holder.icon.setImageDrawable(models.get(position).getIcon());
         holder.appName.setText(models.get(position).getAppName());
         holder.packageName.setText(models.get(position).getPackageName());
@@ -71,8 +69,6 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
         TextView appName;
         @BindView(R.id.packageName)
         TextView packageName;
-        @BindArray(R.array.colors)
-        int[] colors;
 
         AppInfoViewHolder(View itemView) {
             super(itemView);
@@ -85,10 +81,6 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
             ClipData clip = ClipData.newPlainText("appInfo", models.get(getAdapterPosition()).toString());
             clipboard.setPrimaryClip(clip);
             Toast.makeText(context, "信息已复制", Toast.LENGTH_SHORT).show();
-        }
-
-        int getColor(int position) {
-            return colors[position % colors.length];
         }
     }
 }
