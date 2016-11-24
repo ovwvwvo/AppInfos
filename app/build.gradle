@@ -13,7 +13,7 @@ android {
         versionCode appVersionCode
         versionName appVersionName
 
-        manifestPlaceholders = [umeng_key: '583294d59f06fd79c2001c2f']
+        manifestPlaceholders = [umeng_key: umengKey]
     }
 
     lintOptions {
@@ -24,9 +24,9 @@ android {
     signingConfigs {
         releaseSigning {
             storeFile file("keystore.jks")
-            storePassword "123456"
-            keyAlias "rawer"
-            keyPassword "jia297580"
+            storePassword appStorePassword
+            keyAlias appKeyAlias
+            keyPassword appKeyPassword
         }
     }
 

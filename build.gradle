@@ -15,6 +15,9 @@ allprojects {
         jcenter()
     }
 
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('config.properties').newDataInputStream())
+
     ext {
         appCompileSdkVersion = 25
         appBuildToolVersion = '24.0.3'
@@ -27,11 +30,17 @@ allprojects {
 
         appSupportLibVersion = '25.0.1'
 
-        butterknifeVersion='8.4.0'
+        butterknifeVersion = '8.4.0'
 
-        retrofitVersion='2.1.0'
+        retrofitVersion = '2.1.0'
 
-        rxVersion='1.1.0'
+        rxVersion = '1.1.0'
+
+        appStorePassword = properties.getProperty("signing.storePassword")
+        appKeyAlias = properties.getProperty("signing.keyAlias")
+        appKeyPassword = properties.getProperty("signing.keyPassword")
+
+        umengKey = properties.getProperty("umeng.key")
     }
 }
 
