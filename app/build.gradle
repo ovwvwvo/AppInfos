@@ -12,6 +12,8 @@ android {
         targetSdkVersion appTargetSdkVersion
         versionCode appVersionCode
         versionName appVersionName
+
+        manifestPlaceholders = [umeng_key: '583294d59f06fd79c2001c2f']
     }
 
     lintOptions {
@@ -32,6 +34,8 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
+            zipAlignEnabled true
+
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.releaseSigning
         }
