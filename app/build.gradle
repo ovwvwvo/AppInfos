@@ -13,7 +13,16 @@ android {
         versionCode appVersionCode
         versionName appVersionName
 
-        manifestPlaceholders = [umeng_key: umengKey]
+        manifestPlaceholders = [Umeng_key: umengKey]
+
+        buildConfigField 'String', 'qqKey', qqKey
+        buildConfigField 'String', 'qqValue', qqValue
+
+        buildConfigField 'String', 'wechatKey', wechatKey
+        buildConfigField 'String', 'wechatValue', wechatValue
+
+        buildConfigField 'String', 'sinaKey', sinaKey
+        buildConfigField 'String', 'sinaValue', sinaValue
     }
 
     lintOptions {
@@ -78,5 +87,4 @@ dependencies {
     compile 'com.umeng.analytics:analytics:latest.integration'
 
     compile 'cn.ovwvwvo.android:JLibary:0.1.2'
-
 }

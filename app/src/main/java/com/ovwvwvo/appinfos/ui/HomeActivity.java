@@ -1,10 +1,13 @@
 package com.ovwvwvo.appinfos.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -15,7 +18,11 @@ import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.model.eventbus.CompleteMessage;
 import com.ovwvwvo.appinfos.model.eventbus.SuccessMessage;
 import com.ovwvwvo.appinfos.util.AppInfoUtil;
+import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -85,16 +92,43 @@ public class HomeActivity extends BaseActivity implements InfoFragment.onCallBac
             return true;
         } else if (item.getItemId() == R.id.action_search) {
             getSupportFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                    .add(R.id.fragment_container, SearchFragment.newInstance())
-                    .addToBackStack(null)
-                    .commit();
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .add(R.id.fragment_container, SearchFragment.newInstance())
+                .addToBackStack(null)
+                .commit();
             return true;
         } else if (item.getItemId() == R.id.action_share) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_back);
 
+            new ShareAction(HomeActivity.this)
+                .withText(getString(R.string.share_content))
+                .withExtra(new UMImage(mContext, bitmap))
+                .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE,
+                    SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.MORE)
+                .setCallback(umShareListener)
+                .open();
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            if (t != null) {
+                Toast.makeText(HomeActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.d("throw", "throw:" + t.getMessage());
+            }
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(HomeActivity.this, platform.toString().toLowerCase() + getString(R.string.share_canceled), Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private void getData() {
         Observable<List<AppInfoModel>> dataObservable = Observable.fromCallable(new Callable<List<AppInfoModel>>() {
@@ -105,24 +139,24 @@ public class HomeActivity extends BaseActivity implements InfoFragment.onCallBac
         });
 
         subscription = dataObservable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<AppInfoModel>>() {
-                    @Override
-                    public void onCompleted() {
-                        EventBus.getDefault().post(new CompleteMessage());
-                    }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(new Observer<List<AppInfoModel>>() {
+                @Override
+                public void onCompleted() {
+                    EventBus.getDefault().post(new CompleteMessage());
+                }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(mContext, R.string.data_error, Toast.LENGTH_SHORT).show();
-                    }
+                @Override
+                public void onError(Throwable e) {
+                    Toast.makeText(mContext, R.string.data_error, Toast.LENGTH_SHORT).show();
+                }
 
-                    @Override
-                    public void onNext(List<AppInfoModel> models) {
-                        onDataLoadSuccess(models);
-                    }
-                });
+                @Override
+                public void onNext(List<AppInfoModel> models) {
+                    onDataLoadSuccess(models);
+                }
+            });
     }
 
 

@@ -10,4 +10,11 @@
 
     <string name="data_error">数据出错!</string>
     <string name="copy">内容已复制到剪贴板</string>
+    <string name="share">分享</string>
+    <string name="share_title">选择分享</string>
+
+    <string name="share_content">我在使用 Appinfos 查看手机的应用，你也来试试吧!</string>
+
+    <string name="share_canceled">分享取消了</string>
+
 </resources>

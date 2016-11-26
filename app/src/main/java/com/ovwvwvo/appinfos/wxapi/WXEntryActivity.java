@@ -1,5 +1,6 @@
 package com.ovwvwvo.appinfos.wxapi;
 
+
 import com.umeng.weixin.callback.WXCallbackActivity;
 
 /**

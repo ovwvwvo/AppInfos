@@ -41,6 +41,15 @@ allprojects {
         appKeyPassword = properties.getProperty("signing.keyPassword")
 
         umengKey = properties.getProperty("umeng.key")
+
+        qqKey = properties.getProperty("qq.key")
+        qqValue = properties.getProperty("qq.value")
+
+        wechatKey = properties.getProperty("wechat.key")
+        wechatValue = properties.getProperty("wechat.value")
+
+        sinaKey = properties.getProperty("sina.key")
+        sinaValue = properties.getProperty("sina.value")
     }
 }
 
