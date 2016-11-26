@@ -3,6 +3,7 @@ package com.ovwvwvo.appinfos.adapter;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -78,13 +79,18 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
         @OnClick(R.id.copy)
         void copy() {
             ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("appInfo", models.get(getAdapterPosition()).toString());
+            final String content = models.get(getAdapterPosition()).toString();
+            ClipData clip = ClipData.newPlainText("appInfo", content);
             clipboard.setPrimaryClip(clip);
             Snackbar.make(icon, R.string.copy, Snackbar.LENGTH_LONG)
-                .setAction("分享", new View.OnClickListener() {
+                .setAction(R.string.share, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //// TODO: 2016/11/23 shape
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        String msg = content;
+                        intent.putExtra(Intent.EXTRA_TEXT, msg);
+                        context.startActivity(Intent.createChooser(intent, context.getString(R.string.share_title)));
                     }
                 })
                 .show();
