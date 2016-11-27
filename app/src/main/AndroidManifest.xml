@@ -101,7 +101,7 @@
             android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
 
         <!--<service-->
             <!--android:name="com.sina.weibo.sdk.net.DownloadService"-->
