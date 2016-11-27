@@ -126,7 +126,6 @@ public class HomeActivity extends BaseActivity implements InfoFragment.onCallBac
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(HomeActivity.this, platform.toString().toLowerCase() + getString(R.string.share_canceled), Toast.LENGTH_SHORT).show();
         }
     };
 
