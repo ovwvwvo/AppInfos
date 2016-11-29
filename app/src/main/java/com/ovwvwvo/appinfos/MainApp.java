@@ -21,7 +21,8 @@ public class MainApp extends Application {
     private void initUmeng() {
         UMShareAPI.get(this);
         Config.REDIRECT_URL = "http://www.baidu.com";
-        PlatformConfig.setQQZone(BuildConfig.qqValue, BuildConfig.qqValue);
+        Config.IsToastTip = true;
+        PlatformConfig.setQQZone(BuildConfig.qqKey, BuildConfig.qqValue);
         PlatformConfig.setWeixin(BuildConfig.wechatKey, BuildConfig.wechatValue);
         PlatformConfig.setSinaWeibo(BuildConfig.sinaKey, BuildConfig.sinaValue);
     }

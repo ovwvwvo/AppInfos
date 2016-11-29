@@ -1,8 +1,7 @@
 package com.ovwvwvo.appinfos.ui;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -23,6 +22,7 @@ import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.shareboard.ShareBoardConfig;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -98,15 +98,20 @@ public class HomeActivity extends BaseActivity implements InfoFragment.onCallBac
                 .commit();
             return true;
         } else if (item.getItemId() == R.id.action_share) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_back);
-
+            ShareBoardConfig config = new ShareBoardConfig();
+            config.setShareboardBackgroundColor(Color.WHITE)
+                .setCancelButtonVisibility(false)
+                .setIndicatorColor(Color.WHITE, Color.WHITE)
+                .setTitleVisibility(false);
             new ShareAction(HomeActivity.this)
                 .withText(getString(R.string.share_content))
-                .withExtra(new UMImage(mContext, bitmap))
+                .withExtra(new UMImage(mContext, R.mipmap.ic_launcher))
+                .withTitle(getString(R.string.app_name))
+                .withTargetUrl(getString(R.string.share_url))
                 .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE,
                     SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.MORE)
                 .setCallback(umShareListener)
-                .open();
+                .open(config);
         }
         return super.onOptionsItemSelected(item);
     }
