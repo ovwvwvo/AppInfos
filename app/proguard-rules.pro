@@ -123,3 +123,5 @@ public static final ** CREATOR;
 }
 
 -keepattributes Signature
+
+-keepattributes EnclosingMethod
