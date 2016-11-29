@@ -42,6 +42,7 @@ allprojects {
 
         umengKey = properties.getProperty("umeng.key")
 
+        qqScheme = properties.getProperty("qq.scheme")
         qqKey = properties.getProperty("qq.key")
         qqValue = properties.getProperty("qq.value")
 

@@ -15,8 +15,7 @@ android {
 
         manifestPlaceholders = [Umeng_key: umengKey]
 
-        resValue "string", "qqKey", "1105096018"
-
+        resValue "string", "qqScheme", qqScheme
         buildConfigField 'String', 'qqKey', qqKey
         buildConfigField 'String', 'qqValue', qqValue
 
