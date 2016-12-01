@@ -78,7 +78,7 @@ android {
 }
 
 def gitVersionCode() {
-    def cmd = 'git rev-list HEAD --first-parent --count'
+    def cmd = 'git rev-list HEAD  --count'
     cmd.execute().text.trim().toInteger()
 }
 
@@ -87,14 +87,11 @@ def gitVersionName() {
     def versionName = cmd.execute().text.trim()
 
     def pattern = "-(\\d+)-g"
-    def matcher = version =~ pattern
+    def matcher = versionName =~ pattern
 
     if (matcher) {
-        version = version.substring(0, matcher.start()) + "." + matcher[0][1]
-    } else {
-        version = version + ".0"
+        versionName = versionName.substring(0, matcher.start() + 1) + versionName.substring(matcher.end())
     }
-
     return versionName
 }
 
