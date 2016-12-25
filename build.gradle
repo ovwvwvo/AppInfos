@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8' //butterknife
     }
 }
@@ -28,7 +28,7 @@ allprojects {
         appVersionCode = 1
         appVersionName = "1.0"
 
-        appSupportLibVersion = '25.0.1'
+        appSupportLibVersion = '25.1.0'
 
         butterknifeVersion = '8.4.0'
 
