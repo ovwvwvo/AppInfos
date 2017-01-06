@@ -99,7 +99,7 @@ def gitVersionName() {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':common')
-    compile project(':share')
+    compile project(':shareLibary')
 
     testCompile 'junit:junit:4.12'
 

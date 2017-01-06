@@ -1,6 +1,6 @@
-[submodule "share"]
-	path = share
-	url = git@github.com:ovwvwvo/share.git
 [submodule "common"]
 	path = common
 	url = git@github.com:ovwvwvo/common.git
+[submodule "shareLibary"]
+	path = shareLibary
+	url = git@github.com:ovwvwvo/shareLibary.git
