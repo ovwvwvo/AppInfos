@@ -40,7 +40,3 @@ captures/
 
 # Keystore files
 *.jks
-
-#common
-common/
-share/

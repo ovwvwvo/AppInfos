@@ -30,6 +30,8 @@ allprojects {
 
         appSupportLibVersion = '25.1.0'
 
+        appJunitVersion='4.12'
+
         butterknifeVersion = '8.4.0'
 
         retrofitVersion = '2.1.0'
