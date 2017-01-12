@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'io.fabric'
 
 android {
 
@@ -116,4 +117,8 @@ dependencies {
     compile 'cn.ovwvwvo.android:JLibary:0.1.2'
 
     compile 'org.projectlombok:lombok:1.14.8'
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
+        transitive = true;
+    }
 }

@@ -2,9 +2,11 @@ package com.ovwvwvo.appinfos;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * Copyright ©2016 by ovwvwvo
@@ -15,6 +17,7 @@ public class MainApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         initUmeng();
     }
 
@@ -26,4 +29,5 @@ public class MainApp extends Application {
         PlatformConfig.setWeixin(BuildConfig.wechatKey, BuildConfig.wechatValue);
         PlatformConfig.setSinaWeibo(BuildConfig.sinaKey, BuildConfig.sinaValue);
     }
+
 }

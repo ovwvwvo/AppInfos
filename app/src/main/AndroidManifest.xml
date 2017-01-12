@@ -86,6 +86,9 @@
         <!--android:name="com.sina.weibo.sdk.net.DownloadService"-->
         <!--android:exported="false" />-->
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="874e0c16c8f9eb690a50fc4a3da3fdc574010894" />
     </application>
 
 </manifest>
