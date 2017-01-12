@@ -18,7 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppInfoAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
-import com.ovwvwvo.common.widget.ClearableEditText;
+import com.ovwvwvo.common.widget.EditText.ClearableEditText;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
