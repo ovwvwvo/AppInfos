@@ -86,13 +86,13 @@ public class SearchFragment extends Fragment implements TextWatcher {
         recyclerView.setAdapter(adapter);
 
         searchInput.addTextChangedListener(this);
-        searchInput.requestFocus();
-        searchInput.setFocusable(true);
-        searchInput.setCursorVisible(true);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 showKeyboard();
+                searchInput.setFocusable(true);
+                searchInput.setFocusableInTouchMode(true);
+                searchInput.requestFocus();
             }
         }, 200);
     }
@@ -129,7 +129,7 @@ public class SearchFragment extends Fragment implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         if (editable != null && editable.length() > 0) {
             searchContent = editable.toString();
-            scheduledExecutor.schedule(new SearchThread(editable.toString()), 500, TimeUnit.MILLISECONDS);
+            scheduledExecutor.schedule(new SearchThread(editable.toString()), 200, TimeUnit.MILLISECONDS);
         } else {
             searchContent = "";
             adapter.clearModel();
@@ -157,7 +157,7 @@ public class SearchFragment extends Fragment implements TextWatcher {
 
         private WeakReference<SearchFragment> fragmentWeakReference;
 
-        public MyHandler(SearchFragment fragment) {
+         MyHandler(SearchFragment fragment) {
             fragmentWeakReference = new WeakReference<>(fragment);
         }
 

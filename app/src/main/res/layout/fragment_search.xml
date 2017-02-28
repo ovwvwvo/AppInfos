@@ -23,7 +23,7 @@
             android:scaleType="center"
             android:src="@drawable/ic_back"/>
 
-        <com.ovwvwvo.common.widget.ClearableEditText
+        <com.ovwvwvo.common.widget.EditText.ClearableEditText
             android:id="@+id/search_input"
             style="@style/TextAppearance.T1"
             android:layout_width="match_parent"
