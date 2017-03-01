@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.ovwvwvo.appinfos.R;
-import com.ovwvwvo.appinfos.ui.InfoFragment;
+import com.ovwvwvo.appinfos.ui.AppListFragment;
 
 /**
  * Copyright ©2016 by ovwvwvo
@@ -22,7 +22,7 @@ public class HomeAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return InfoFragment.newInstance(position);
+        return AppListFragment.newInstance(position);
     }
 
     @Override

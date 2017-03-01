@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
 import com.ovwvwvo.appinfos.R;
-import com.ovwvwvo.appinfos.adapter.AppInfoAdapter;
+import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.common.widget.EditText.ClearableEditText;
 
@@ -48,7 +48,7 @@ public class SearchFragment extends Fragment implements TextWatcher {
     private MyHandler myHandler;
     private ScheduledExecutorService scheduledExecutor;
 
-    private AppInfoAdapter adapter;
+    private AppListItemAdapter adapter;
 
     private String searchContent;
 
@@ -82,7 +82,7 @@ public class SearchFragment extends Fragment implements TextWatcher {
 
     private void initView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new AppInfoAdapter(getContext());
+        adapter = new AppListItemAdapter(getContext());
         recyclerView.setAdapter(adapter);
 
         searchInput.addTextChangedListener(this);
@@ -105,8 +105,8 @@ public class SearchFragment extends Fragment implements TextWatcher {
 
     private void onSearch(String content) {
         List<AppInfoModel> result = new ArrayList<>();
-        if (activity != null) {
-            for (AppInfoModel model : activity.models) {
+        if (activity != null && activity.getModels() != null) {
+            for (AppInfoModel model : activity.getModels()) {
                 String source = (model.getAppName() + model.getPackageName()).replace(" ", "").toLowerCase();
                 if (source.contains((content.replace(" ", "").toLowerCase())))
                     result.add(model);
@@ -157,7 +157,7 @@ public class SearchFragment extends Fragment implements TextWatcher {
 
         private WeakReference<SearchFragment> fragmentWeakReference;
 
-         MyHandler(SearchFragment fragment) {
+        MyHandler(SearchFragment fragment) {
             fragmentWeakReference = new WeakReference<>(fragment);
         }
 

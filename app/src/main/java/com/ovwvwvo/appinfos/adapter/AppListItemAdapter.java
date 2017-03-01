@@ -25,13 +25,13 @@ import butterknife.OnClick;
 /**
  * Created by ovwvwvo on 16/9/1.
  */
-public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoViewHolder> {
+public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.AppInfoViewHolder> {
 
     private Context context;
     private LayoutInflater inflater;
     private List<AppInfoModel> models = new ArrayList<>();
 
-    public AppInfoAdapter(Context context) {
+    public AppListItemAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -51,6 +51,10 @@ public class AppInfoAdapter extends RecyclerView.Adapter<AppInfoAdapter.AppInfoV
     public void setModels(List<AppInfoModel> models) {
         this.models = models;
         notifyDataSetChanged();
+    }
+
+    public List<AppInfoModel> getModels() {
+        return models;
     }
 
     public void clearModel() {

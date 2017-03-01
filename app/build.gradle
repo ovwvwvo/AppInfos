@@ -34,7 +34,7 @@ android {
 
     signingConfigs {
         releaseSigning {
-            storeFile file("keystore.jks")
+            storeFile file("keystore/keystore.jks")
             storePassword appStorePassword
             keyAlias appKeyAlias
             keyPassword appKeyPassword

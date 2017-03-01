@@ -16,6 +16,4 @@ public class GuideActivity extends BaseActivity {
         startActivity(new Intent(mContext, SplashActivity.class));
         finish();
     }
-
-
 }
