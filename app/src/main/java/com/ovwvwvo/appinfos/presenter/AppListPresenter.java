@@ -1,9 +1,10 @@
 package com.ovwvwvo.appinfos.presenter;
 
 import com.ovwvwvo.appinfos.R;
+import com.ovwvwvo.appinfos.adapter.HomeAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.repo.AppListRepo;
-import com.ovwvwvo.appinfos.repoImpl.AppListRepoImpi;
+import com.ovwvwvo.appinfos.repoImpl.AppListRepoImpl;
 import com.ovwvwvo.appinfos.view.AppListView;
 import com.ovwvwvo.common.presenter.BasePresenter;
 
@@ -23,17 +24,17 @@ public class AppListPresenter extends BasePresenter {
 
     public AppListPresenter(AppListView appListView) {
         this.appListView = appListView;
-        this.appListRepo = new AppListRepoImpi();
+        this.appListRepo = new AppListRepoImpl();
     }
 
     public void getAppList(int position) {
-        if (position == 1)
+        if (position == HomeAdapter.ME)
             getMyAppList();
-        else getAllAppList();
+        else getSystemAppList();
     }
 
-    private void getAllAppList() {
-        appListRepo.getAllAppList()
+    private void getSystemAppList() {
+        appListRepo.getSystemAppList()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new Action1<List<AppInfoModel>>() {
                 @Override
@@ -63,6 +64,4 @@ public class AppListPresenter extends BasePresenter {
                 }
             });
     }
-
-
 }

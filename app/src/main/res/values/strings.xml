@@ -9,6 +9,8 @@
     <string name="my_app">我的应用</string>
 
     <string name="data_error">数据出错!</string>
+    <string name="search_error">搜索出错!</string>
+
     <string name="copy">内容已复制到剪贴板</string>
     <string name="share">分享</string>
     <string name="share_title">选择分享</string>

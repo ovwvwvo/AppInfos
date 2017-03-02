@@ -10,10 +10,9 @@ import rx.Observable;
  * Copyright ©2017 by ovwvwvo
  */
 
-public interface AppListRepo {
+public interface SearchRepo {
 
-    Observable<List<AppInfoModel>> getMyAppList();
+    Observable<List<AppInfoModel>> getAllAppList();
 
-    Observable<List<AppInfoModel>> getSystemAppList();
-
+    Observable<List<AppInfoModel>> filterApps(String word, List<AppInfoModel> models);
 }

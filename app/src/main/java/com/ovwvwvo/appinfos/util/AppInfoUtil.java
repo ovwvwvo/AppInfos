@@ -50,4 +50,22 @@ public class AppInfoUtil {
         return models;
     }
 
+    public static List<AppInfoModel> getSystemAppInfos(Context context) {
+        List<AppInfoModel> models = new ArrayList<>();
+        PackageManager pm = context.getPackageManager();
+        List<PackageInfo> list = pm.getInstalledPackages(PackageManager.GET_INSTRUMENTATION);
+        AppInfoModel appInfoModel;
+        for (PackageInfo packageInfo : list) {
+            if ((packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) > 0) {
+                appInfoModel = new AppInfoModel();
+                appInfoModel.setAppName(packageInfo.applicationInfo.loadLabel(pm).toString());
+                appInfoModel.setPackageName(packageInfo.packageName);
+                appInfoModel.setAppIcon(packageInfo.applicationInfo.loadIcon(pm));
+                appInfoModel.setVersionName(packageInfo.versionName);
+                models.add(appInfoModel);
+            }
+        }
+        return models;
+    }
+
 }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
+import com.ovwvwvo.appinfos.adapter.HomeAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.presenter.AppListPresenter;
 import com.ovwvwvo.appinfos.view.AppListView;
@@ -48,7 +49,7 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        position = getArguments().getInt(POSITION, 0);
+        position = getArguments().getInt(POSITION, HomeAdapter.ME);
         presenter = new AppListPresenter(this);
         presenter.getAppList(position);
     }

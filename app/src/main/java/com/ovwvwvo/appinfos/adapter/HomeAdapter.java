@@ -13,7 +13,13 @@ import com.ovwvwvo.appinfos.ui.AppListFragment;
  */
 
 public class HomeAdapter extends FragmentPagerAdapter {
+
     private Context context;
+    private AppListFragment allFragment;
+    private AppListFragment meFragment;
+
+    public static final int ME = 0;
+    public static final int SYSTEM = 1;
 
     public HomeAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -22,7 +28,16 @@ public class HomeAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return AppListFragment.newInstance(position);
+        if (position == ME) {
+            if (meFragment == null)
+                return meFragment = AppListFragment.newInstance(ME);
+            else
+                return meFragment;
+        } else {
+            if (allFragment == null)
+                return allFragment = AppListFragment.newInstance(SYSTEM);
+            else return allFragment;
+        }
     }
 
     @Override
@@ -34,9 +49,9 @@ public class HomeAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return context.getString(R.string.system_app);
-            case 1:
                 return context.getString(R.string.my_app);
+            case 1:
+                return context.getString(R.string.system_app);
             default:
                 return "";
         }

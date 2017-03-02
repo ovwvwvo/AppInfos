@@ -3,9 +3,7 @@ package com.ovwvwvo.appinfos.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -18,14 +16,11 @@ import android.view.inputmethod.InputMethodManager;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
+import com.ovwvwvo.appinfos.presenter.SearchPresenter;
+import com.ovwvwvo.appinfos.view.SearchView;
 import com.ovwvwvo.common.widget.EditText.ClearableEditText;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,39 +30,29 @@ import butterknife.OnClick;
  * Copyright ©2016 by ovwvwvo
  */
 
-public class SearchFragment extends Fragment implements TextWatcher {
+public class SearchFragment extends BaseFragment implements TextWatcher, SearchView {
 
     @BindView(R.id.search_input)
     ClearableEditText searchInput;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
 
-    private HomeActivity activity;
-
     private InputMethodManager imm;
-    private MyHandler myHandler;
-    private ScheduledExecutorService scheduledExecutor;
 
+    private SearchPresenter presenter;
     private AppListItemAdapter adapter;
-
-    private String searchContent;
 
     public static SearchFragment newInstance() {
         return new SearchFragment();
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        activity = (HomeActivity) context;
-        imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-    }
-
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        scheduledExecutor = Executors.newScheduledThreadPool(50);
-        myHandler = new MyHandler(this);
+        imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        presenter = new SearchPresenter(this);
+        presenter.getAllAppList();
     }
 
     @Nullable
@@ -103,18 +88,6 @@ public class SearchFragment extends Fragment implements TextWatcher {
         getFragmentManager().popBackStack();
     }
 
-    private void onSearch(String content) {
-        List<AppInfoModel> result = new ArrayList<>();
-        if (activity != null && activity.getModels() != null) {
-            for (AppInfoModel model : activity.getModels()) {
-                String source = (model.getAppName() + model.getPackageName()).replace(" ", "").toLowerCase();
-                if (source.contains((content.replace(" ", "").toLowerCase())))
-                    result.add(model);
-            }
-        }
-        adapter.setModels(result);
-    }
-
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -127,54 +100,22 @@ public class SearchFragment extends Fragment implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable editable) {
-        if (editable != null && editable.length() > 0) {
-            searchContent = editable.toString();
-            scheduledExecutor.schedule(new SearchThread(editable.toString()), 200, TimeUnit.MILLISECONDS);
-        } else {
-            searchContent = "";
-            adapter.clearModel();
+        if (editable != null) {
+            presenter.searchApp(editable.toString());
         }
     }
 
-    public class SearchThread implements Runnable {
-
-        private String newText;
-
-        SearchThread(String newText) {
-            this.newText = newText;
-        }
-
-        @Override
-        public void run() {
-            if (newText != null && newText.equals(searchContent)) {
-                myHandler.sendMessage(myHandler.obtainMessage(1, newText));
-            }
-        }
+    @Override
+    public void loadDataSuccess(List<AppInfoModel> models) {
+        presenter.setModels(models);
+        adapter.clearModel();
+        adapter.setModels(models);
     }
 
-
-    private static class MyHandler extends Handler {
-
-        private WeakReference<SearchFragment> fragmentWeakReference;
-
-        MyHandler(SearchFragment fragment) {
-            fragmentWeakReference = new WeakReference<>(fragment);
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            if (msg.what == 1) {
-                searchContent(msg.obj.toString());
-            }
-        }
-
-        void searchContent(String content) {
-            SearchFragment fragment = fragmentWeakReference.get();
-            if (fragment != null) {
-                fragment.adapter.clearModel();
-                fragment.onSearch(content);
-            }
-        }
+    @Override
+    public void onSearchSuccess(List<AppInfoModel> models) {
+        adapter.clearModel();
+        adapter.setModels(models);
     }
 
     private void showKeyboard() {

@@ -1,7 +1,7 @@
 package com.ovwvwvo.appinfos.repoImpl;
 
 import com.ovwvwvo.appinfos.model.AppInfoModel;
-import com.ovwvwvo.appinfos.repo.AppListRepo;
+import com.ovwvwvo.appinfos.repo.SearchRepo;
 import com.ovwvwvo.appinfos.util.AppInfoUtil;
 import com.ovwvwvo.appinfos.util.AppWrapper;
 
@@ -9,13 +9,14 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import rx.Observable;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
  * Copyright ©2017 by ovwvwvo
  */
 
-public class AppListRepoImpi implements AppListRepo {
+public class SearchRepoImpl implements SearchRepo {
 
     @Override
     public Observable<List<AppInfoModel>> getAllAppList() {
@@ -28,12 +29,14 @@ public class AppListRepoImpi implements AppListRepo {
     }
 
     @Override
-    public Observable<List<AppInfoModel>> getMyAppList() {
-        return Observable.fromCallable(new Callable<List<AppInfoModel>>() {
+    public Observable<List<AppInfoModel>> filterApps(final String word, List<AppInfoModel> models) {
+        return Observable.from(models).filter(new Func1<AppInfoModel, Boolean>() {
             @Override
-            public List<AppInfoModel> call() throws Exception {
-                return AppInfoUtil.getMyAppInfos(AppWrapper.getInstance().getAppContext());
+            public Boolean call(AppInfoModel appInfoModel) {
+                String source = (appInfoModel.getAppName() + appInfoModel.getPackageName()).replace(" ", "").toLowerCase();
+                return source.contains((word.replace(" ", "").toLowerCase()));
             }
-        }).subscribeOn(Schedulers.io());
+        }).toList().subscribeOn(Schedulers.io());
     }
+
 }
