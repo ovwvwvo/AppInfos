@@ -38,7 +38,7 @@ public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.
 
     @Override
     public AppInfoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AppInfoViewHolder(inflater.inflate(R.layout.item_view, parent, false));
+        return new AppInfoViewHolder(inflater.inflate(R.layout.item_view_b, parent, false));
     }
 
     @Override
