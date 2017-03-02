@@ -29,7 +29,7 @@
             android:name=".ui.HomeActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.SettingActivity"
+            android:name=".ui.AboutActivity"
             android:screenOrientation="portrait"/>
 
         <meta-data

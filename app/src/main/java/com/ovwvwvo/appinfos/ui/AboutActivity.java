@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
  * Copyright ©2016 by ovwvwvo
  */
 
-public class SettingActivity extends BaseActivity {
+public class AboutActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
