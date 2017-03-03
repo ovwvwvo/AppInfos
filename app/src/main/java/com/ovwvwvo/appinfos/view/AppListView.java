@@ -6,7 +6,7 @@ import com.ovwvwvo.common.view.BaseView;
 import java.util.List;
 
 /**
- * Copyright ©2017 by Teambition
+ * Copyright ©2017 by ovwvwvo
  */
 
 public interface AppListView extends BaseView {

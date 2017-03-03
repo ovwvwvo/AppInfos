@@ -30,7 +30,6 @@ public class AboutActivity extends BaseActivity {
         setSupportActionBar(toolbar);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
