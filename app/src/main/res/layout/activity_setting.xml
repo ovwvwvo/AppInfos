@@ -22,6 +22,6 @@
             android:background="?android:selectableItemBackground"
             app:layout_scrollFlags="scroll|enterAlways"
             app:navigationIcon="@drawable/ic_back"
-            app:title="@string/settings"/>
+            app:title="@string/about"/>
     </android.support.design.widget.AppBarLayout>
 </LinearLayout>

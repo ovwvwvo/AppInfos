@@ -76,6 +76,7 @@ android {
             variant.mergedFlavor.versionName = gitVersionName()
         }
     }
+    buildToolsVersion '25.0.0'
 }
 
 def gitVersionCode() {
@@ -95,7 +96,6 @@ def gitVersionName() {
     }
     return versionName
 }
-
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
