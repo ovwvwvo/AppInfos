@@ -18,7 +18,6 @@ public class SettingPreference extends BasePreference {
         editor.apply();
     }
 
-
     public static boolean getFirstLaunch(Context context) {
         SharedPreferences preferences = getPreference(context, FILENAME);
         return preferences.getBoolean(FIRST_LAUNCH, false);

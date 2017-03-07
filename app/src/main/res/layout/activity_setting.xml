@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_200"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.ovwvwvo.appinfos.ui.AboutActivity">
@@ -23,5 +24,51 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:navigationIcon="@drawable/ic_back"
             app:title="@string/about"/>
+
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_1"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/ads"
+        style="@style/TextAppearance.T1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/space_normal"
+        android:text="@string/ads"/>
+
+    <TextView
+        android:id="@+id/version"
+        style="@style/TextAppearance.T1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/space_normal"
+        android:text="@string/version"/>
+
+    <TextView
+        android:id="@+id/github"
+        style="@style/TextAppearance.T1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/space_normal"
+        android:text="@string/github"/>
+
+    <TextView
+        android:id="@+id/about"
+        style="@style/TextAppearance.T1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/space_normal"
+        android:text="@string/about"/>
 </LinearLayout>

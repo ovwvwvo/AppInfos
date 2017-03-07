@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AppInfos</string>
+
+    <string name="search">Search</string>
+
+    <string name="system_app">System App</string>
+    <string name="my_app">My App</string>
+
+    <string name="data_error">Data Error !</string>
+    <string name="search_error">Search Error !</string>
+
+    <string name="copy">Content copied</string>
+    <string name="share">Share</string>
+    <string name="share_title">Choose Share</string>
+
+    <string name="share_url">http://fir.im/szl7</string>
+    <string name="share_content">我在使用 Appinfos 查看手机的应用，你也来试试吧!</string>
+    <string name="share_canceled">分享取消了</string>
+
+    <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="github">Github</string>
+    <string name="ads">Hide Ads</string>
+
+</resources>

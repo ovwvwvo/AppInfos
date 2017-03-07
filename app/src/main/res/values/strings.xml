@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">AppInfos</string>
 
-    <string name="about">关于</string>
     <string name="search">搜索</string>
-
 
     <string name="system_app">系统应用</string>
     <string name="my_app">我的应用</string>
@@ -18,5 +16,10 @@
     <string name="share_url">http://fir.im/szl7</string>
     <string name="share_content">我在使用 Appinfos 查看手机的应用，你也来试试吧!</string>
     <string name="share_canceled">分享取消了</string>
+
+    <string name="about">关于</string>
+    <string name="version">版本</string>
+    <string name="github">Github</string>
+    <string name="ads">隐藏广告</string>
 
 </resources>
