@@ -24,6 +24,7 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:navigationIcon="@drawable/ic_back"
             app:title="@string/about"/>
+
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.Space
@@ -33,13 +34,13 @@
 
     <TextView
         android:id="@+id/ads"
-        style="@style/TextAppearance.T1"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/space_normal"
-        android:text="@string/ads"/>
+        android:text="@string/ads"
+        android:textAppearance="@style/TextAppearance.T1"/>
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
@@ -47,13 +48,13 @@
 
     <TextView
         android:id="@+id/github"
-        style="@style/TextAppearance.T1"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/space_normal"
-        android:text="@string/github"/>
+        android:text="@string/github"
+        android:textAppearance="@style/TextAppearance.T1"/>
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
@@ -61,13 +62,13 @@
 
     <TextView
         android:id="@+id/version"
-        style="@style/TextAppearance.T1"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/space_normal"
-        android:text="@string/version"/>
+        android:text="@string/version"
+        android:textAppearance="@style/TextAppearance.T1"/>
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
@@ -75,11 +76,11 @@
 
     <TextView
         android:id="@+id/about"
-        style="@style/TextAppearance.T1"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="@android:color/white"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/space_normal"
-        android:text="@string/about"/>
+        android:text="@string/about"
+        android:textAppearance="@style/TextAppearance.T1"/>
 </LinearLayout>
