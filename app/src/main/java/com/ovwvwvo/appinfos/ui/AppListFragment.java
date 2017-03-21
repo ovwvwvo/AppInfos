@@ -9,12 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
 import com.ovwvwvo.appinfos.adapter.HomeAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
+import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.appinfos.presenter.AppListPresenter;
 import com.ovwvwvo.appinfos.view.AppListView;
+import com.ovwvwvo.jlibrary.utils.ToastUtil;
 
 import java.util.List;
 
@@ -25,7 +30,7 @@ import butterknife.ButterKnife;
  * Copyright ©2016 by ovwvwvo
  */
 
-public class AppListFragment extends BaseFragment implements AppListView, SwipeRefreshLayout.OnRefreshListener {
+public class AppListFragment extends BaseFragment implements AppListView, SwipeRefreshLayout.OnRefreshListener, AppListItemAdapter.onItemClickListener {
 
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout refreshLayout;
@@ -37,6 +42,8 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
     private AppListItemAdapter adapter;
     private AppListPresenter presenter;
     private int position;
+
+    private InterstitialAd mInterstitialAd;
 
     public static AppListFragment newInstance(int position) {
         AppListFragment instance = new AppListFragment();
@@ -52,6 +59,8 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         position = getArguments().getInt(POSITION, HomeAdapter.ME);
         presenter = new AppListPresenter(this);
         presenter.getAppList(position);
+
+        initAds();
     }
 
     @Nullable
@@ -64,6 +73,7 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         refreshLayout.setColorSchemeResources(R.color.colorPrimary);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new AppListItemAdapter(getContext());
+        adapter.setListener(this);
         recyclerView.setAdapter(adapter);
         return view;
     }
@@ -80,7 +90,42 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         adapter.setModels(models);
     }
 
+    public void initAds() {
+        mInterstitialAd = new InterstitialAd(getActivity());
+        mInterstitialAd.setAdUnitId(getString(R.string.ads_id));
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                gotoAppInfoDetail();
+            }
+        });
+        requestNewInterstitial();
+    }
+
     public List<AppInfoModel> getModels() {
         return adapter.getModels();
     }
+
+    @Override
+    public void onItemClick(AppInfoModel model) {
+        if (mInterstitialAd.isLoaded() && SettingPreference.getDisplayAds(getContext())) {
+            mInterstitialAd.show();
+        } else {
+            gotoAppInfoDetail();
+        }
+    }
+
+    private void gotoAppInfoDetail() {
+        ToastUtil.showShort(getContext(), "Detail");
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+            .build();
+
+        mInterstitialAd.loadAd(adRequest);
+    }
+
 }

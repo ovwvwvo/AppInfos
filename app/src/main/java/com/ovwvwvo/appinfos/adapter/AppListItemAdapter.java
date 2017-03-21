@@ -30,10 +30,15 @@ public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.
     private Context context;
     private LayoutInflater inflater;
     private List<AppInfoModel> models = new ArrayList<>();
+    private onItemClickListener listener;
 
     public AppListItemAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
+    }
+
+    public void setListener(onItemClickListener listener) {
+        this.listener = listener;
     }
 
     @Override
@@ -68,6 +73,8 @@ public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.
     }
 
     class AppInfoViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.parent)
+        ViewGroup parent;
         @BindView(R.id.icon)
         ImageView icon;
         @BindView(R.id.appName)
@@ -78,6 +85,12 @@ public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.
         AppInfoViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @OnClick(R.id.parent)
+        void itemClick() {
+            if (listener != null)
+                listener.onItemClick(models.get(getAdapterPosition()));
         }
 
         @OnClick(R.id.copy)
@@ -99,5 +112,9 @@ public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.
                 })
                 .show();
         }
+    }
+
+    public interface onItemClickListener {
+        void onItemClick(AppInfoModel model);
     }
 }

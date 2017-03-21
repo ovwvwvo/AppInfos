@@ -13,12 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
+import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.appinfos.presenter.SearchPresenter;
 import com.ovwvwvo.appinfos.view.SearchView;
 import com.ovwvwvo.common.widget.EditText.ClearableEditText;
+import com.ovwvwvo.jlibrary.utils.ToastUtil;
 
 import java.util.List;
 
@@ -30,7 +35,7 @@ import butterknife.OnClick;
  * Copyright ©2016 by ovwvwvo
  */
 
-public class SearchFragment extends BaseFragment implements TextWatcher, SearchView {
+public class SearchFragment extends BaseFragment implements TextWatcher, SearchView, AppListItemAdapter.onItemClickListener {
 
     @BindView(R.id.search_input)
     ClearableEditText searchInput;
@@ -41,6 +46,8 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
 
     private SearchPresenter presenter;
     private AppListItemAdapter adapter;
+
+    private InterstitialAd mInterstitialAd;
 
     public static SearchFragment newInstance() {
         return new SearchFragment();
@@ -53,6 +60,8 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
 
         presenter = new SearchPresenter(this);
         presenter.getAllAppList();
+
+        initAds();
     }
 
     @Nullable
@@ -68,6 +77,7 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
     private void initView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new AppListItemAdapter(getContext());
+        adapter.setListener(this);
         recyclerView.setAdapter(adapter);
 
         searchInput.addTextChangedListener(this);
@@ -118,6 +128,20 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
         adapter.setModels(models);
     }
 
+    public void initAds() {
+        mInterstitialAd = new InterstitialAd(getActivity());
+        mInterstitialAd.setAdUnitId(getString(R.string.ads_id));
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                gotoAppInfoDetail();
+            }
+        });
+        requestNewInterstitial();
+    }
+
     private void showKeyboard() {
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
@@ -125,4 +149,25 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
     public void hideKeyboard() {
         imm.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
     }
+
+    @Override
+    public void onItemClick(AppInfoModel model) {
+        if (mInterstitialAd.isLoaded() && SettingPreference.getDisplayAds(getContext())) {
+            mInterstitialAd.show();
+        } else {
+            gotoAppInfoDetail();
+        }
+    }
+
+    private void gotoAppInfoDetail() {
+        ToastUtil.showShort(getContext(), "Detail");
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+            .build();
+
+        mInterstitialAd.loadAd(adRequest);
+    }
+
 }

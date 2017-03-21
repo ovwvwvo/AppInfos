@@ -53,7 +53,6 @@ public class HomeActivity extends BaseActivity {
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

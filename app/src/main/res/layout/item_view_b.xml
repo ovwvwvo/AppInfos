@@ -2,12 +2,12 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="128dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:paddingLeft="@dimen/space_small_1"
-    tools:ignore="RtlHardcoded">
+    android:paddingLeft="@dimen/space_small_1">
 
     <ImageView
         android:id="@+id/icon"
