@@ -7,7 +7,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8' //butterknife
         classpath 'io.fabric.tools:gradle:1.21.6'
         classpath 'com.google.gms:google-services:3.0.0'
     }
@@ -36,7 +35,7 @@ allprojects {
 
         appJunitVersion='4.12'
 
-        butterknifeVersion = '8.4.0'
+        butterknifeVersion = '8.5.1'
 
         retrofitVersion = '2.1.0'
 

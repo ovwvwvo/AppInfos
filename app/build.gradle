@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
 
@@ -102,18 +101,18 @@ dependencies {
     compile project(':common')
     compile project(':shareLibary')
 
-    apt "com.jakewharton:butterknife-compiler:$butterknifeVersion"
     compile "com.jakewharton:butterknife:$butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+
     compile "io.reactivex:rxandroid:$rxVersion"
     compile "io.reactivex:rxjava:$rxVersion"
 
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
         transitive = true;
     }
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'cn.ovwvwvo.android:JLibary:0.1.2'
-    compile 'org.projectlombok:lombok:1.14.8'
     compile 'com.afollestad.material-dialogs:core:0.9.4.1'
 
     compile 'com.google.firebase:firebase-ads:10.0.1'
