@@ -39,20 +39,19 @@
 
         <TextView
             android:id="@+id/appName"
-            style="@style/Base.TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lines="1"
-            android:textColor="@android:color/black"
+            android:textAppearance="@style/TextAppearance.T1"
             tools:text="Appinfo"/>
 
         <TextView
             android:id="@+id/packageName"
-            style="@style/Base.TextAppearance.AppCompat.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_normal"
             android:lines="1"
+            android:textAppearance="@style/TextAppearance.T2.Grey"
             tools:text="com.ovwvwvo.appinfo"/>
     </LinearLayout>
 
