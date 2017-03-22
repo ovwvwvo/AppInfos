@@ -4,13 +4,6 @@
     tools:context="com.ovwvwvo.appinfos.ui.HomeActivity">
 
     <item
-        android:id="@+id/action_share"
-        android:icon="@drawable/ic_share"
-        android:orderInCategory="100"
-        android:title="@string/search"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_search"
         android:icon="@drawable/ic_search"
         android:orderInCategory="200"
