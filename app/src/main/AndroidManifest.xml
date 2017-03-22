@@ -31,6 +31,9 @@
         <activity
             android:name=".ui.AboutActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.AppDetailActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="UMENG_APPKEY"

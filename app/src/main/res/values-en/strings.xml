@@ -2,7 +2,8 @@
 <resources>
     <string name="app_name">AppInfos</string>
 
-    <string name="ok">ok</string>
+    <string name="sure">Sure</string>
+    <string name="cancel">Cancel</string>
 
     <string name="search">Search</string>
 
@@ -17,15 +18,16 @@
     <string name="share_title">Choose Share</string>
 
     <string name="share_url">http://fir.im/szl7</string>
-    <string name="share_content">I am using Appinfos checking application, you also to try!</string>
+    <string name="share_content">I\'m using Appinfos checking application, you also to try!</string>
     <string name="share_canceled">Sharing is cancelled</string>
 
     <string name="about">About</string>
     <string name="version">Version</string>
     <string name="github">Github</string>
-    <string name="ads">Hide Ads</string>
+    <string name="hide_ads">Hide Ads</string>
     <string name="display_ads">Display ads (used to giving developers)</string>
 
-    <string name="hide_ads_tip">Sure you want to hide advertising ?</string>
+    <string name="hide_ads_tip">Sure you want to hide Ads ?</string>
+    <string name="hided_ads">Hided Ads</string>
 
 </resources>

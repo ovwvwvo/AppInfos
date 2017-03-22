@@ -1,6 +1,7 @@
 package com.ovwvwvo.appinfos.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -23,7 +24,6 @@ import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.appinfos.presenter.SearchPresenter;
 import com.ovwvwvo.appinfos.view.SearchView;
 import com.ovwvwvo.common.widget.EditText.ClearableEditText;
-import com.ovwvwvo.jlibrary.utils.ToastUtil;
 
 import java.util.List;
 
@@ -136,7 +136,6 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                gotoAppInfoDetail();
             }
         });
         requestNewInterstitial();
@@ -155,12 +154,14 @@ public class SearchFragment extends BaseFragment implements TextWatcher, SearchV
         if (mInterstitialAd.isLoaded() && SettingPreference.getDisplayAds(getContext())) {
             mInterstitialAd.show();
         } else {
-            gotoAppInfoDetail();
+            gotoAppInfoDetail(model.getPackageName());
         }
     }
 
-    private void gotoAppInfoDetail() {
-        ToastUtil.showShort(getContext(), "Detail");
+    private void gotoAppInfoDetail(String packageName) {
+        Intent intent = new Intent(getActivity(), AppDetailActivity.class);
+        intent.putExtra(AppDetailActivity.PACKAGE_NAME, packageName);
+        startActivity(intent);
     }
 
     private void requestNewInterstitial() {

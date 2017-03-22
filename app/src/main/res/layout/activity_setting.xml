@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@color/gray_200"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
     tools:context="com.ovwvwvo.appinfos.ui.AboutActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -27,60 +26,76 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_1"
-        android:background="@color/gray_200"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/ads"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@android:color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/space_normal"
-        android:text="@string/ads"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_1"
+            android:background="@color/gray_200"/>
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0.3dp"/>
+        <TextView
+            android:id="@+id/ads"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/space_normal"
+            android:text="@string/hide_ads"
+            android:textAppearance="@style/TextAppearance.T2"/>
 
-    <TextView
-        android:id="@+id/github"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@android:color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/space_normal"
-        android:text="@string/github"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
 
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0.3dp"/>
+        <TextView
+            android:id="@+id/share"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/space_normal"
+            android:text="@string/share"
+            android:textAppearance="@style/TextAppearance.T2"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
+
+        <TextView
+            android:id="@+id/github"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/space_normal"
+            android:text="@string/github"
+            android:textAppearance="@style/TextAppearance.T2"/>
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"/>
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/space_normal"
+            android:text="@string/about"
+            android:textAppearance="@style/TextAppearance.T2"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/version"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@android:color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/space_normal"
-        android:text="@string/version"
-        android:textAppearance="@style/TextAppearance.T1"/>
-
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="0.3dp"/>
-
-    <TextView
-        android:id="@+id/about"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@android:color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/space_normal"
-        android:text="@string/about"
-        android:textAppearance="@style/TextAppearance.T1"/>
-</LinearLayout>
+        android:layout_height="@dimen/space_large_3"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.ST.Grey"
+        tools:text="应用版本：0.1.0"/>
+</RelativeLayout>

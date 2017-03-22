@@ -1,5 +1,6 @@
 package com.ovwvwvo.appinfos.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -19,7 +20,6 @@ import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.appinfos.presenter.AppListPresenter;
 import com.ovwvwvo.appinfos.view.AppListView;
-import com.ovwvwvo.jlibrary.utils.ToastUtil;
 
 import java.util.List;
 
@@ -98,7 +98,6 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                gotoAppInfoDetail();
             }
         });
         requestNewInterstitial();
@@ -113,18 +112,19 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         if (mInterstitialAd.isLoaded() && SettingPreference.getDisplayAds(getContext())) {
             mInterstitialAd.show();
         } else {
-            gotoAppInfoDetail();
+            gotoAppInfoDetail(model.getPackageName());
         }
     }
 
-    private void gotoAppInfoDetail() {
-        ToastUtil.showShort(getContext(), "Detail");
+    private void gotoAppInfoDetail(String packageName) {
+        Intent intent=new Intent(getActivity(), AppDetailActivity.class);
+        intent.putExtra(AppDetailActivity.PACKAGE_NAME,packageName);
+        startActivity(intent);
     }
 
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
             .build();
-
         mInterstitialAd.loadAd(adRequest);
     }
 

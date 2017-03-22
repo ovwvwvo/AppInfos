@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_large_3"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.T1"
+            tools:text="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_small_1"
+            android:textAppearance="@style/TextAppearance.T2.Grey"
+            tools:text="版本：1.0.1"/>
+
+        <ImageView
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginTop="@dimen/space_small_1"
+            android:background="@color/gray_200"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/launch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small_2"
+            android:gravity="center"
+            tools:text="启动"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/open_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small_2"
+            tools:text="打开设置"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/prew_android_manifest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small_2"
+            tools:text="查看 AndroidManifest.xml"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/save_apk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small_2"
+            tools:text="保存 apk"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/open_in_appstore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small_2"
+            tools:text="在应用商店打开"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/uninstall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_small_2"
+            android:gravity="center"
+            tools:text="卸载"/>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
