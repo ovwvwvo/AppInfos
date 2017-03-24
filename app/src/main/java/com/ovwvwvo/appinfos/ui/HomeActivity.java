@@ -67,7 +67,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_about) {
-            startActivity(new Intent(this, AboutActivity.class));
+            startActivity(new Intent(this, SettingActivity.class));
             return true;
         } else if (item.getItemId() == R.id.action_search) {
             getSupportFragmentManager().beginTransaction()

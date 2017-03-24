@@ -31,4 +31,16 @@
 
     <string name="ads_id" translatable="false">ca-app-pub-4066588899283566/1466780534</string>
 
+    <!--设置-->
+    <string name="launch">启动</string>
+    <string name="read_android_manifest">查看 AndroidManifest.xml</string>
+    <string name="uninstall">卸载</string>
+    <string name="clear_data">清楚数据</string>
+    <string name="clear_cache">清楚缓存</string>
+    <string name="open_setting">打开设置</string>
+    <string name="save_apk">保存 APK</string>
+    <string name="open_in_appstore">在应用商店打开</string>
+
+    <string name="detail_version">版本：%s</string>
+
 </resources>

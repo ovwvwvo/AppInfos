@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <ImageView
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?android:selectableItemBackground"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:navigationIcon="@drawable/ic_back"/>
+
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/space_large_3"
+            app:layout_scrollFlags="scroll|enterAlways"
             tools:src="@mipmap/ic_launcher"/>
 
         <TextView
@@ -24,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:textAppearance="@style/TextAppearance.T1"
+            android:textAppearance="@style/TextAppearance.T1.White"
             tools:text="@string/app_name"/>
 
         <TextView
@@ -32,61 +42,140 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/space_small_1"
-            android:textAppearance="@style/TextAppearance.T2.Grey"
+            android:layout_marginBottom="@dimen/space_normal"
+            android:layout_marginTop="@dimen/space_normal"
+            android:textAppearance="@style/TextAppearance.TT.White"
             tools:text="版本：1.0.1"/>
 
-        <ImageView
-            android:id="@+id/divider"
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/appBar"
+        >
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/divider_height"
-            android:layout_marginTop="@dimen/space_small_1"
-            android:background="@color/gray_200"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/launch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small_2"
-            android:gravity="center"
-            tools:text="启动"/>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/open_setting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small_2"
-            tools:text="打开设置"/>
+            <TextView
+                android:id="@+id/launch"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/launch"
+                android:textAppearance="@style/TextAppearance.T1"/>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/prew_android_manifest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small_2"
-            tools:text="查看 AndroidManifest.xml"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/save_apk"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small_2"
-            tools:text="保存 apk"/>
+            <TextView
+                android:id="@+id/clear_data"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/clear_data"
+                android:textAppearance="@style/TextAppearance.T1"/>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/open_in_appstore"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small_2"
-            tools:text="在应用商店打开"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/uninstall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_small_2"
-            android:gravity="center"
-            tools:text="卸载"/>
+            <TextView
+                android:id="@+id/clear_cache"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/clear_cache"
+                android:textAppearance="@style/TextAppearance.T1"/>
 
-    </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
 
-</android.support.v4.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/open_setting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/open_setting"
+                android:textAppearance="@style/TextAppearance.T1"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
+
+            <TextView
+                android:id="@+id/read_android_manifest"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/read_android_manifest"
+                android:textAppearance="@style/TextAppearance.T1"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
+
+            <TextView
+                android:id="@+id/save_apk"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/save_apk"
+                android:textAppearance="@style/TextAppearance.T1"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
+
+            <TextView
+                android:id="@+id/open_in_appstore"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/open_in_appstore"
+                android:textAppearance="@style/TextAppearance.T1"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:background="@color/gray_200"/>
+
+            <TextView
+                android:id="@+id/uninstall"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_large_5"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/uninstall"
+                android:textAppearance="@style/TextAppearance.T1"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

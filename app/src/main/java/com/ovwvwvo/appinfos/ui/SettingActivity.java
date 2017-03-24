@@ -32,7 +32,7 @@ import butterknife.OnClick;
  * Copyright ©2016 by ovwvwvo
  */
 
-public class AboutActivity extends BaseActivity {
+public class SettingActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.ads)
@@ -113,7 +113,7 @@ public class AboutActivity extends BaseActivity {
             .setCancelButtonVisibility(false)
             .setIndicatorColor(Color.WHITE, Color.WHITE)
             .setTitleVisibility(false);
-        new ShareAction(AboutActivity.this)
+        new ShareAction(SettingActivity.this)
             .withText(getString(R.string.share_content))
             .withExtra(new UMImage(mContext, R.mipmap.ic_launcher))
             .withTitle(getString(R.string.app_name))
@@ -132,7 +132,7 @@ public class AboutActivity extends BaseActivity {
         @Override
         public void onError(SHARE_MEDIA platform, Throwable t) {
             if (t != null) {
-                Toast.makeText(AboutActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.e("throw", "throw:" + t.getMessage());
             }
         }

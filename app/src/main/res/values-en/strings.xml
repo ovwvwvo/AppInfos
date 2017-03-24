@@ -30,4 +30,16 @@
     <string name="hide_ads_tip">Sure you want to hide Ads ?</string>
     <string name="hided_ads">Hided Ads</string>
 
+    <!--设置-->
+    <string name="read_android_manifest">Read AndroidManifest.xml</string>
+    <string name="uninstall">Uninstall App</string>
+    <string name="launch">Launch App</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="open_setting">Open Setting</string>
+    <string name="save_apk">Save APK</string>
+    <string name="open_in_appstore">Open in the AppStore</string>
+
+    <string name="detail_version">Version : %s</string>
+
 </resources>

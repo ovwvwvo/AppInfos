@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray_200"
     android:fitsSystemWindows="true"
-    tools:context="com.ovwvwvo.appinfos.ui.AboutActivity">
+    tools:context="com.ovwvwvo.appinfos.ui.SettingActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
