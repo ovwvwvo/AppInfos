@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+        android:id="@+id/launch"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/launch"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/clear_data"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/clear_data"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/clear_cache"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/open_setting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/open_setting"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/read_android_manifest"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/read_android_manifest"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/save_apk"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/save_apk"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/open_in_appstore"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/open_in_appstore"
+        android:textAppearance="@style/TextAppearance.T1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/gray_200"/>
+
+    <TextView
+        android:id="@+id/uninstall"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_large_5"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/uninstall"
+        android:textAppearance="@style/TextAppearance.T1"/>
+</LinearLayout>

@@ -111,7 +111,7 @@ dependencies {
         transitive = true;
     }
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.umeng.analytics:analytics:6.0.9'
     compile 'cn.ovwvwvo.android:JLibary:0.1.2'
     compile 'com.afollestad.material-dialogs:core:0.9.4.1'
 
