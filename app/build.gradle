@@ -103,6 +103,7 @@ dependencies {
 
     compile "com.jakewharton:butterknife:$butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 
     compile "io.reactivex:rxandroid:$rxVersion"
     compile "io.reactivex:rxjava:$rxVersion"
