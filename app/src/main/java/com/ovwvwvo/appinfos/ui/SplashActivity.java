@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import com.ovwvwvo.appinfos.R;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class SplashActivity extends BaseActivity {

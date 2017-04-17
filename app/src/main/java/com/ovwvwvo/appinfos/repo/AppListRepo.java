@@ -7,7 +7,7 @@ import java.util.List;
 import rx.Observable;
 
 /**
- * Copyright ©2017 by ovwvwvo
+ * Copyright ©2017 by rawer
  */
 
 public interface AppListRepo {

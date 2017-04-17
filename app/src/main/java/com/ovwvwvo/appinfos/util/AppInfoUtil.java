@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ovwvwvo on 16/9/13.
+ * Created by rawer on 16/9/13.
  */
 
 public class AppInfoUtil {

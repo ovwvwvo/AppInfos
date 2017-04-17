@@ -14,7 +14,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
 /**
- * Copyright ©2017 by ovwvwvo
+ * Copyright ©2017 by rawer
  */
 
 public class AppListPresenter extends BasePresenter {

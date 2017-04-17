@@ -27,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class AppListFragment extends BaseFragment implements AppListView, SwipeRefreshLayout.OnRefreshListener, AppListItemAdapter.onItemClickListener {

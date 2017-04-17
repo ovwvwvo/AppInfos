@@ -8,7 +8,7 @@ import android.support.v7.appcompat.BuildConfig;
 import com.umeng.analytics.MobclickAgent;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class BaseFragment extends com.ovwvwvo.common.fragment.BaseFragment {

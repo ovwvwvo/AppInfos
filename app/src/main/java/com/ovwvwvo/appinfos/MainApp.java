@@ -11,7 +11,7 @@ import com.umeng.socialize.UMShareAPI;
 import io.fabric.sdk.android.Fabric;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class MainApp extends Application {

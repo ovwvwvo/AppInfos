@@ -32,7 +32,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class SearchFragment extends BaseFragment implements TextWatcher, SearchView, AppListItemAdapter.onItemClickListener {

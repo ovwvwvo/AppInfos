@@ -13,7 +13,7 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * Copyright ©2017 by ovwvwvo
+ * Copyright ©2017 by rawer
  */
 
 public class SearchRepoImpl implements SearchRepo {

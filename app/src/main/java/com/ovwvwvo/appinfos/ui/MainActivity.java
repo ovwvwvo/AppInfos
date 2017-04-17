@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class MainActivity extends BaseActivity {

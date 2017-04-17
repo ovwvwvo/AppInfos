@@ -9,7 +9,7 @@ import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.ui.AppListFragment;
 
 /**
- * Copyright ©2016 by ovwvwvo
+ * Copyright ©2016 by rawer
  */
 
 public class HomeAdapter extends FragmentPagerAdapter {

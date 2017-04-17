@@ -12,7 +12,7 @@ import rx.Observable;
 import rx.schedulers.Schedulers;
 
 /**
- * Copyright ©2017 by ovwvwvo
+ * Copyright ©2017 by rawer
  */
 
 public class AppListRepoImpl implements AppListRepo {

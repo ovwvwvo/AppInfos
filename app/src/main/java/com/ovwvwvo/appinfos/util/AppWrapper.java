@@ -3,7 +3,7 @@ package com.ovwvwvo.appinfos.util;
 import android.content.Context;
 
 /**
- * Created by ovwvwvo on 17/3/1.
+ * Created by rawer on 17/3/1.
  */
 public class AppWrapper {
 
