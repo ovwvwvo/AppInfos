@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBar"
@@ -17,6 +17,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/space_normal"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap">
 
             <LinearLayout
@@ -28,7 +29,7 @@
                     android:id="@+id/app_icon"
                     android:layout_width="@dimen/space_large_3"
                     android:layout_height="@dimen/space_large_3"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     app:civ_border_color="@android:color/white"
                     app:civ_border_width="1dp"
                     tools:background="@mipmap/ic_launcher"/>
@@ -40,7 +41,6 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
                     android:textAppearance="@style/TextAppearance.T1.White"
-                    app:layout_scrollFlags="scroll"
                     tools:text="@string/app_name"/>
 
                 <TextView
@@ -48,10 +48,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/space_normal"
                     android:layout_marginTop="@dimen/space_normal"
                     android:textAppearance="@style/TextAppearance.TT.White"
-                    app:layout_scrollFlags="scroll|enterAlways"
                     tools:text="版本：1.0.1"/>
             </LinearLayout>
 
@@ -59,22 +57,21 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/appBar"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <include layout="@layout/layout_detail_content"/>
-
-    </android.support.v4.widget.NestedScrollView>
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/colorPrimary"
-        app:titleTextAppearance="@style/TextAppearance.H1.White"
-        app:navigationIcon="@drawable/ic_back"/>
+        app:navigationIcon="@drawable/ic_back"
+        app:titleTextAppearance="@style/TextAppearance.H1.White"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/layout_detail_content"/>
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>
