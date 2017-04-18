@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.presenter.AppDetailPresenter;
+import com.ovwvwvo.jlibrary.utils.ToastUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +50,10 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
         setSupportActionBar(toolbar);
 
         packageName = getIntent().getStringExtra(PACKAGE_NAME);
+        if (TextUtils.isEmpty(packageName)) {
+            ToastUtil.showShort(this, R.string.app_no_exit);
+            finish();
+        }
         appBarLayout.addOnOffsetChangedListener(this);
 
         presenter = new AppDetailPresenter();

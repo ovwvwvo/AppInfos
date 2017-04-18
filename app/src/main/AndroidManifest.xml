@@ -3,6 +3,8 @@
           package="com.ovwvwvo.appinfos">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".MainApp"
@@ -85,13 +87,17 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
 
-        <!--<service-->
-        <!--android:name="com.sina.weibo.sdk.net.DownloadService"-->
-        <!--android:exported="false" />-->
+        <receiver android:name=".receiver.MonitorSysReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="874e0c16c8f9eb690a50fc4a3da3fdc574010894" />
+            android:value="874e0c16c8f9eb690a50fc4a3da3fdc574010894"/>
     </application>
 
 </manifest>

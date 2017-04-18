@@ -17,9 +17,15 @@ import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
 import com.ovwvwvo.appinfos.adapter.HomeAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
+import com.ovwvwvo.appinfos.model.event.InstallEvent;
+import com.ovwvwvo.appinfos.model.event.UnInstallEvent;
 import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.appinfos.presenter.AppListPresenter;
 import com.ovwvwvo.appinfos.view.AppListView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
@@ -61,6 +67,21 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         presenter.getAppList(position);
 
         initAds();
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        EventBus.getDefault().unregister(this);
+        super.onPause();
     }
 
     @Nullable
@@ -117,8 +138,8 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
     }
 
     private void gotoAppInfoDetail(String packageName) {
-        Intent intent=new Intent(getActivity(), AppDetailActivity.class);
-        intent.putExtra(AppDetailActivity.PACKAGE_NAME,packageName);
+        Intent intent = new Intent(getActivity(), AppDetailActivity.class);
+        intent.putExtra(AppDetailActivity.PACKAGE_NAME, packageName);
         startActivity(intent);
     }
 
@@ -128,4 +149,13 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         mInterstitialAd.loadAd(adRequest);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(InstallEvent event) {
+        onRefresh();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(UnInstallEvent event) {
+        onRefresh();
+    }
 }
