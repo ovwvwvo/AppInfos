@@ -64,6 +64,7 @@ android {
         qihu {}
         tencent {}
         wandoujia {}
+        google {}
     }
 
     productFlavors.all { flavor ->
