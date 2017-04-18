@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.ovwvwvo.appinfos.R;
+import com.ovwvwvo.appinfos.presenter.AppDetailPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,7 +17,7 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * Copyright ©2017 by Teambition
+ * Copyright ©2017 by rawer
  */
 
 public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOffsetChangedListener {
@@ -37,13 +38,19 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
     @BindView(R.id.app_version)
     TextView appVersion;
 
+    private AppDetailPresenter presenter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
+        setSupportActionBar(toolbar);
+
         packageName = getIntent().getStringExtra(PACKAGE_NAME);
         appBarLayout.addOnOffsetChangedListener(this);
+
+        presenter = new AppDetailPresenter();
 
         initData();
     }
@@ -63,14 +70,13 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
 
     @OnClick(R.id.launch)
     void launch() {
-
+        presenter.launchApp(this, packageName);
     }
 
     @OnClick(R.id.clear_data)
     void clearData() {
 
     }
-
 
     @OnClick(R.id.clear_cache)
     void clearCache() {
@@ -79,7 +85,7 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
 
     @OnClick(R.id.open_setting)
     void openSetting() {
-
+        presenter.openSetting(this, packageName);
     }
 
     @OnClick(R.id.read_android_manifest)
@@ -93,13 +99,13 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
     }
 
     @OnClick(R.id.open_in_appstore)
-    void openInAppstore() {
-
+    void openInAppStore() {
+        presenter.openAppStore(this, packageName);
     }
 
     @OnClick(R.id.uninstall)
     void uninstall() {
-
+        presenter.uninstall(this, packageName);
     }
 
     @Override

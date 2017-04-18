@@ -119,11 +119,6 @@
         android:text="@string/uninstall"
         android:textAppearance="@style/TextAppearance.T1"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
-
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_large_5"/>

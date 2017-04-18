@@ -43,4 +43,7 @@
 
     <string name="detail_version">版本：%s</string>
 
+    <!--AppDetail-->
+    <string name="app_no_exit">应用不存在或者不能被启动</string>
+
 </resources>
