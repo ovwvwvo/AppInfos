@@ -6,6 +6,7 @@
     <string name="cancel">The application does not exist or can not be started</string>
 
     <string name="search">Search</string>
+    <string name="setting">Setting</string>
 
     <string name="system_app">System App</string>
     <string name="my_app">My App</string>
