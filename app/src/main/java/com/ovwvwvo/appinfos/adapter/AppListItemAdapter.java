@@ -99,7 +99,7 @@ public class AppListItemAdapter extends RecyclerView.Adapter<AppListItemAdapter.
             final String content = models.get(getAdapterPosition()).toString();
             ClipData clip = ClipData.newPlainText("appInfo", content);
             clipboard.setPrimaryClip(clip);
-            Snackbar.make(icon, R.string.copy, Snackbar.LENGTH_LONG)
+            Snackbar.make(icon, R.string.copy_tip, Snackbar.LENGTH_LONG)
                 .setAction(R.string.share, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

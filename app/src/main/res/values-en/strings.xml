@@ -3,7 +3,7 @@
     <string name="app_name">AppInfos</string>
 
     <string name="sure">Sure</string>
-    <string name="cancel">Cancel</string>
+    <string name="cancel">The application does not exist or can not be started</string>
 
     <string name="search">Search</string>
 
@@ -13,7 +13,8 @@
     <string name="data_error">Data Error !</string>
     <string name="search_error">Search Error !</string>
 
-    <string name="copy">Content copied</string>
+    <string name="copy">Copy</string>
+    <string name="copy_tip">Content copied</string>
     <string name="share">Share</string>
     <string name="share_title">Choose Share</string>
 
@@ -34,12 +35,21 @@
     <string name="read_android_manifest">Read AndroidManifest.xml</string>
     <string name="uninstall">Uninstall App</string>
     <string name="launch">Launch App</string>
-    <string name="clear_data">Clear Data</string>
-    <string name="clear_cache">Clear Cache</string>
     <string name="open_setting">Open Setting</string>
+    <string name="clean_files">Clean file</string>
+    <string name="clean_sharedPreference">Clean SharedPreferences</string>
+    <string name="clean_internal_cache">Clean Internal Cache</string>
+    <string name="clean_external_cache">Clean External Cache</string>
+    <string name="clean_data">Clean Data</string>
+    <string name="clean_databases">Clean databases</string>
+    <string name="hash_key">HashKey</string>
+    <string name="md5">MD5</string>
+    <string name="sha1">SHA1</string>
     <string name="save_apk">Save APK</string>
     <string name="open_in_appstore">Open in the AppStore</string>
 
     <string name="detail_version">Version : %s</string>
+
+    <string name="app_no_exit">The application does not exist or can not be started</string>
 
 </resources>

@@ -4,120 +4,323 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/launch"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/launch"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        <TextView
+            android:id="@+id/launch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/launch"
+            android:textAppearance="@style/TextAppearance.T1"/>
 
-    <TextView
-        android:id="@+id/clear_data"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/clear_data"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/clear_cache"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/clear_cache"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        <TextView
+            android:id="@+id/open_setting"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/open_setting"
+            android:textAppearance="@style/TextAppearance.T1"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/open_setting"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/open_setting"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        <TextView
+            android:id="@+id/clean_data"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/clean_data"
+            android:textAppearance="@style/TextAppearance.T1"/>
 
-    <TextView
-        android:id="@+id/read_android_manifest"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/read_android_manifest"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <TextView
-        android:id="@+id/save_apk"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/save_apk"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        <TextView
+            android:id="@+id/clean_internal_cache"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/clean_internal_cache"
+            android:textAppearance="@style/TextAppearance.T1"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/open_in_appstore"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/open_in_appstore"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/divider_height"
-        android:background="@color/gray_200"/>
+        <TextView
+            android:id="@+id/clean_external_cache"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/clean_external_cache"
+            android:textAppearance="@style/TextAppearance.T1"/>
 
-    <TextView
-        android:id="@+id/uninstall"
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_large_5"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="@string/uninstall"
-        android:textAppearance="@style/TextAppearance.T1"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/clean_sharedPreference"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/clean_sharedPreference"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/clean_databases"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/clean_databases"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/clean_files"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/clean_files"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/md5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/md5"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sha1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/sha1"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hash_key"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/hash_key"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/read_android_manifest"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/read_android_manifest"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/open_in_appstore"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/open_in_appstore"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/save_apk"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/save_apk"
+            android:textAppearance="@style/TextAppearance.T1"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/gray_200"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/uninstall"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_large_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/uninstall"
+            android:textAppearance="@style/TextAppearance.T1"/>
+    </LinearLayout>
 
     <android.support.v4.widget.Space
         android:layout_width="match_parent"

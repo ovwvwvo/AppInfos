@@ -12,7 +12,8 @@
     <string name="data_error">数据出错!</string>
     <string name="search_error">搜索出错!</string>
 
-    <string name="copy">内容已复制到剪贴板</string>
+    <string name="copy">复制</string>
+    <string name="copy_tip">内容已复制到剪贴板</string>
     <string name="share">分享</string>
     <string name="share_title">选择分享</string>
 
@@ -33,13 +34,20 @@
 
     <!--设置-->
     <string name="launch">启动</string>
-    <string name="read_android_manifest">查看 AndroidManifest.xml</string>
-    <string name="uninstall">卸载</string>
-    <string name="clear_data">清楚数据</string>
-    <string name="clear_cache">清楚缓存</string>
+    <string name="clean_data">清除应用数据</string>
+    <string name="clean_internal_cache">清楚外部缓存</string>
+    <string name="clean_external_cache">清除内部缓存</string>
+    <string name="clean_databases">清除数据库文件</string>
+    <string name="clean_files">清楚内部文件</string>
+    <string name="clean_sharedPreference">清除 SharedPreferences</string>
+    <string name="md5">MD5</string>
+    <string name="sha1">SHA1</string>
+    <string name="hash_key">HashKey</string>
     <string name="open_setting">打开设置</string>
     <string name="save_apk">保存 APK</string>
     <string name="open_in_appstore">在应用商店打开</string>
+    <string name="read_android_manifest">查看 AndroidManifest.xml</string>
+    <string name="uninstall">卸载</string>
 
     <string name="detail_version">版本：%s</string>
 
