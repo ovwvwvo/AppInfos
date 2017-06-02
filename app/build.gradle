@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
+apply from: 'version.gradle'
 
 android {
 
@@ -73,28 +74,10 @@ android {
 
     applicationVariants.all { variant ->
         if (variant.buildType.name == 'release') {
-            variant.mergedFlavor.versionCode = gitVersionCode()
-            variant.mergedFlavor.versionName = gitVersionName()
+            variant.mergedFlavor.versionCode = versionCode
+            variant.mergedFlavor.versionName = versionName
         }
     }
-}
-
-static def gitVersionCode() {
-    def cmd = 'git rev-list HEAD  --count'
-    cmd.execute().text.trim().toInteger()
-}
-
-static def gitVersionName() {
-    def cmd = 'git describe --tags'
-    def versionName = cmd.execute().text.trim()
-
-    def pattern = "-(\\d+)-g"
-    def matcher = versionName =~ pattern
-
-    if (matcher) {
-        versionName = versionName.substring(0, matcher.start() + 1) + versionName.substring(matcher.end())
-    }
-    return versionName
 }
 
 dependencies {
