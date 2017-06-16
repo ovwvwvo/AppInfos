@@ -16,8 +16,8 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.model.perference.SettingPreference;
-import com.ovwvwvo.jlibrary.utils.AppUtil;
-import com.ovwvwvo.jlibrary.utils.ToastUtil;
+import com.ovwvwvo.jkit.utils.AppUtil;
+import com.ovwvwvo.jkit.weight.ToastMaster;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -58,7 +58,7 @@ public class SettingActivity extends BaseActivity {
         else
             ads.setText(R.string.display_ads);
 
-        version.setText("v"+AppUtil.getVersionName(this));
+        version.setText("v" + AppUtil.getVersionName(this));
     }
 
     @Override
@@ -83,7 +83,7 @@ public class SettingActivity extends BaseActivity {
                         SettingPreference.setDisplayAds(getApplicationContext(), false);
                         isDisplayAds = false;
                         swapAdsButton();
-                        ToastUtil.showShort(getApplicationContext(), R.string.hided_ads);
+                        ToastMaster.showToastMsg(R.string.hided_ads);
                     }
                 })
                 .show();

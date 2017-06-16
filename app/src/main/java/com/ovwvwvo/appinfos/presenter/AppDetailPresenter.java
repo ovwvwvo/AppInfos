@@ -12,7 +12,7 @@ import android.provider.Settings;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.util.DataCleanManager;
 import com.ovwvwvo.appinfos.util.PackageUtil;
-import com.ovwvwvo.jlibrary.utils.ToastUtil;
+import com.ovwvwvo.jkit.weight.ToastMaster;
 
 /**
  * Copyright ©2017 by rawer
@@ -25,7 +25,7 @@ public class AppDetailPresenter {
             Intent LaunchIntent = context.getPackageManager().getLaunchIntentForPackage(packageName);
             context.startActivity(LaunchIntent);
         } catch (Exception e) {
-            ToastUtil.showShort(context, R.string.app_no_exit);
+            ToastMaster.showToastMsg(R.string.app_no_exit);
         }
     }
 
@@ -37,7 +37,7 @@ public class AppDetailPresenter {
             intent.setData(uri);
             context.startActivity(intent);
         } catch (Exception e) {
-            ToastUtil.showShort(context, R.string.app_no_exit);
+            ToastMaster.showToastMsg(R.string.app_no_exit);
         }
     }
 
@@ -48,7 +48,7 @@ public class AppDetailPresenter {
             intent.setData(uri);
             context.startActivity(intent);
         } catch (Exception e) {
-            ToastUtil.showShort(context, R.string.app_no_exit);
+            ToastMaster.showToastMsg(R.string.app_no_exit);
         }
     }
 
@@ -59,7 +59,7 @@ public class AppDetailPresenter {
             localIntent.setData(Uri.parse(str));
             context.startActivity(localIntent);
         } catch (Exception e) {
-            ToastUtil.showShort(context, R.string.app_no_exit);
+            ToastMaster.showToastMsg(R.string.app_no_exit);
         }
     }
 
@@ -149,6 +149,6 @@ public class AppDetailPresenter {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clip = ClipData.newPlainText("appInfo", content);
         clipboard.setPrimaryClip(clip);
-        ToastUtil.showShort(context, R.string.copy_tip);
+        ToastMaster.showToastMsg(R.string.copy_tip);
     }
 }

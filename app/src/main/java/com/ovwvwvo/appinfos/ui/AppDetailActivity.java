@@ -14,7 +14,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.presenter.AppDetailPresenter;
-import com.ovwvwvo.jlibrary.utils.ToastUtil;
+import com.ovwvwvo.jkit.weight.ToastMaster;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,7 +54,7 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
 
         packageName = getIntent().getStringExtra(PACKAGE_NAME);
         if (TextUtils.isEmpty(packageName)) {
-            ToastUtil.showShort(this, R.string.app_no_exit);
+            ToastMaster.showToastMsg(R.string.app_no_exit);
             finish();
         }
         appBarLayout.addOnOffsetChangedListener(this);
