@@ -3,7 +3,7 @@ package com.ovwvwvo.appinfos;
 import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
-import com.ovwvwvo.appinfos.util.AppWrapper;
+import com.ovwvwvo.jkit.AppWrapper;
 import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
