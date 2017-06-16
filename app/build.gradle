@@ -71,13 +71,6 @@ android {
     productFlavors.all { flavor ->
         flavor.manifestPlaceholders = [Channel_ID: name]
     }
-
-    applicationVariants.all { variant ->
-        if (variant.buildType.name == 'release') {
-            variant.mergedFlavor.versionCode = versionCode
-            variant.mergedFlavor.versionName = versionName
-        }
-    }
 }
 
 dependencies {
