@@ -1,16 +1,13 @@
 package com.ovwvwvo.appinfos.ui;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -18,11 +15,8 @@ import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.jkit.utils.AppUtil;
 import com.ovwvwvo.jkit.weight.ToastMaster;
-import com.umeng.socialize.ShareAction;
-import com.umeng.socialize.UMShareListener;
-import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.ovwvwvo.share.util.ShareUtil;
 import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.shareboard.ShareBoardConfig;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -108,38 +102,10 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick(R.id.share)
     void openShapeBoard() {
-        ShareBoardConfig config = new ShareBoardConfig();
-        config.setShareboardBackgroundColor(Color.WHITE)
-            .setCancelButtonVisibility(false)
-            .setIndicatorColor(Color.WHITE, Color.WHITE)
-            .setTitleVisibility(false);
-        new ShareAction(SettingActivity.this)
-            .withText(getString(R.string.share_content))
-            .withExtra(new UMImage(mContext, R.mipmap.ic_launcher))
-            .withTitle(getString(R.string.app_name))
-            .withTargetUrl(getString(R.string.share_url))
-            .setDisplayList(SHARE_MEDIA.SINA, SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE,
-                SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.MORE)
-            .setCallback(umShareListener)
-            .open(config);
+        String title = getString(R.string.app_name);
+        String desc = getString(R.string.share_content);
+        String url = getString(R.string.share_url);
+        UMImage umImage = new UMImage(mContext, R.mipmap.ic_launcher);
+        ShareUtil.startThirdShare(this, title, desc, url, umImage);
     }
-
-    private UMShareListener umShareListener = new UMShareListener() {
-        @Override
-        public void onResult(SHARE_MEDIA platform) {
-        }
-
-        @Override
-        public void onError(SHARE_MEDIA platform, Throwable t) {
-            if (t != null) {
-                Toast.makeText(SettingActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("throw", "throw:" + t.getMessage());
-            }
-        }
-
-        @Override
-        public void onCancel(SHARE_MEDIA platform) {
-        }
-    };
-
 }

@@ -15,7 +15,13 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url 'https://maven.fabric.io/public' }
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+        maven {
+            url 'https://dl.bintray.com/ovwvwvo/maven'
+        }
+
     }
 
     Properties properties = new Properties()
@@ -33,7 +39,7 @@ allprojects {
 
         appSupportLibVersion = '25.3.0'
 
-        appJunitVersion='4.12'
+        appJunitVersion = '4.12'
 
         butterknifeVersion = '8.5.1'
 

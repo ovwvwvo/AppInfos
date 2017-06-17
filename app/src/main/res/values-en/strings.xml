@@ -17,7 +17,6 @@
     <string name="copy">Copy</string>
     <string name="copy_tip">Content copied</string>
     <string name="share">Share</string>
-    <string name="share_title">Choose Share</string>
 
     <string name="share_url">http://fir.im/szl7</string>
     <string name="share_content">I\'m using Appinfos checking application, you also to try!</string>
