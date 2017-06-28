@@ -92,4 +92,6 @@ dependencies {
     compile 'com.ovwvwvo:jkit:0.1.6'
     compile 'com.ovwvwvo:common:0.1.6'
     compile 'com.ovwvwvo:share:0.1.6'
+
+    compile 'com.instabug.library:instabug:4.2.0'
 }

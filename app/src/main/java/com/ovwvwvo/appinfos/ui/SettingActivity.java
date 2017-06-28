@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.instabug.library.Instabug;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.jkit.utils.AppUtil;
@@ -98,6 +99,11 @@ public class SettingActivity extends BaseActivity {
     @OnClick(R.id.about)
     void about() {
 
+    }
+
+    @OnClick(R.id.feedback)
+    void feedback() {
+        Instabug.invoke();
     }
 
     @OnClick(R.id.share)

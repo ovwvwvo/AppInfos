@@ -53,5 +53,6 @@
 
     <!--AppDetail-->
     <string name="app_no_exit">应用不存在或者不能被启动</string>
+    <string name="feedback">意见反馈</string>
 
 </resources>

@@ -51,5 +51,6 @@
     <string name="detail_version">Version : %s</string>
 
     <string name="app_no_exit">The application does not exist or can not be started</string>
+    <string name="feedback">Feedback</string>
 
 </resources>

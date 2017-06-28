@@ -3,6 +3,8 @@ package com.ovwvwvo.appinfos;
 import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
+import com.instabug.library.Instabug;
+import com.instabug.library.invocation.InstabugInvocationEvent;
 import com.ovwvwvo.jkit.AppWrapper;
 import com.ovwvwvo.share.ShareApi;
 
@@ -20,6 +22,13 @@ public class MainApp extends Application {
         AppWrapper.getInstance().setAppContext(this);
         Fabric.with(this, new Crashlytics());
         initShare();
+        initInstabug();
+    }
+
+    private void initInstabug() {
+        new Instabug.Builder(this, "7115970e680b5f0732639fb380d2ebcf")
+            .setInvocationEvent(InstabugInvocationEvent.SHAKE)
+            .build();
     }
 
     private void initShare() {
