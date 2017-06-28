@@ -130,7 +130,7 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick(R.id.about)
     void about() {
-
+        startActivity(new Intent(this, AboutActivity.class));
     }
 
     @OnClick(R.id.feedback)
