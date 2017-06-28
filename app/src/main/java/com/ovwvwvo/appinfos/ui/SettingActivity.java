@@ -63,7 +63,7 @@ public class SettingActivity extends BaseActivity {
             ads.setText(R.string.display_ads);
 
         github.setOnCreateContextMenuListener(this);
-        version.setText("v" + AppUtil.getVersionName(this));
+        version.setText(AppUtil.getVersionName(this));
     }
 
     @Override
