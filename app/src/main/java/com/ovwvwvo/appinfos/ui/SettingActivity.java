@@ -1,12 +1,17 @@
 package com.ovwvwvo.appinfos.ui;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -34,8 +39,12 @@ public class SettingActivity extends BaseActivity {
     TextView ads;
     @BindView(R.id.version)
     TextView version;
+    @BindView(R.id.github)
+    TextView github;
 
     private boolean isDisplayAds = false;
+
+    private static final String GITHUB_URL = "https://github.com/rawer0/AppInfos";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +62,32 @@ public class SettingActivity extends BaseActivity {
         else
             ads.setText(R.string.display_ads);
 
+        github.setOnCreateContextMenuListener(this);
         version.setText("v" + AppUtil.getVersionName(this));
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_github, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_gotoGithub) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(GITHUB_URL));
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.action_copy)
+            copy(GITHUB_URL);
+        return super.onContextItemSelected(item);
+    }
+
+    private void copy(String context) {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("AppInfos", context);
+        clipboard.setPrimaryClip(clip);
+        ToastMaster.showToastMsg(R.string.copy_tip);
     }
 
     @Override
@@ -91,9 +125,7 @@ public class SettingActivity extends BaseActivity {
 
     @OnClick(R.id.github)
     void gotoGithub() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/ovwvwvo/AppInfos"));
-        startActivity(intent);
+        github.showContextMenu();
     }
 
     @OnClick(R.id.about)

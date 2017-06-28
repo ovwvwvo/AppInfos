@@ -24,8 +24,11 @@
     <string name="about">关于</string>
     <string name="version">版本信息</string>
     <string name="github">Github</string>
+    <string name="gotoGithub">前往 GitHub</string>
     <string name="hide_ads">隐藏广告</string>
     <string name="display_ads">显示广告（用来捐赠开发者）</string>
+    <string name="feedback">意见反馈</string>
+
 
     <string name="hide_ads_tip">确定要隐藏广告吗？</string>
     <string name="hided_ads">广告已被隐藏</string>
@@ -53,6 +56,4 @@
 
     <!--AppDetail-->
     <string name="app_no_exit">应用不存在或者不能被启动</string>
-    <string name="feedback">意见反馈</string>
-
 </resources>

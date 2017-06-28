@@ -25,8 +25,10 @@
     <string name="about">About</string>
     <string name="version">Version</string>
     <string name="github">Github</string>
+    <string name="gotoGithub">Goto GitHub</string>
     <string name="hide_ads">Hide Ads</string>
     <string name="display_ads">Display ads (used to giving developers)</string>
+    <string name="feedback">Feedback</string>
 
     <string name="hide_ads_tip">Sure you want to hide Ads ?</string>
     <string name="hided_ads">Hided Ads</string>
@@ -51,6 +53,5 @@
     <string name="detail_version">Version : %s</string>
 
     <string name="app_no_exit">The application does not exist or can not be started</string>
-    <string name="feedback">Feedback</string>
 
 </resources>
