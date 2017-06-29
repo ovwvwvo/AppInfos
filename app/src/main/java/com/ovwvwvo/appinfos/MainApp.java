@@ -20,7 +20,8 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
         AppWrapper.getInstance().setAppContext(this);
-        Fabric.with(this, new Crashlytics());
+        if (!BuildConfig.DEBUG)
+            Fabric.with(this, new Crashlytics());
         initShare();
         initInstabug();
     }
