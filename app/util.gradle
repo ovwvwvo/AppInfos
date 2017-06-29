@@ -1,3 +1,7 @@
+def getReleaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
 def gitVersionCode() {
     def cmd = 'git rev-list HEAD  --count'
     return cmd.execute().text.trim().toInteger()
@@ -17,6 +21,7 @@ def gitVersionName() {
 }
 
 ext {
-    appVersionCode = this.&gitVersionCode()
-    appVersionName = this.&gitVersionName()
+    appVersionCode = this.gitVersionCode()
+    appVersionName = this.gitVersionName()
+    time = this.getReleaseTime()
 }

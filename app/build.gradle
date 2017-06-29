@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
-apply from: 'version.gradle'
+apply from: 'util.gradle'
 
 android {
 
@@ -71,6 +71,16 @@ android {
 
     productFlavors.all { flavor ->
         flavor.manifestPlaceholders = [Channel_ID: name]
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def fileName = output.outputFile.name;
+            if (fileName != null && fileName.endsWith('.apk')) {
+                fileName = fileName.replace("app", "${variant.versionName}-${variant.versionCode}")
+                output.outputFile = new File(output.outputFile.parent, fileName)
+            }
+        }
     }
 }
 
