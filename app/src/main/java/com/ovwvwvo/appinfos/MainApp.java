@@ -3,6 +3,7 @@ package com.ovwvwvo.appinfos;
 import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.ads.MobileAds;
 import com.instabug.library.Instabug;
 import com.instabug.library.invocation.InstabugInvocationEvent;
 import com.ovwvwvo.jkit.AppWrapper;
@@ -22,6 +23,8 @@ public class MainApp extends Application {
         AppWrapper.getInstance().setAppContext(this);
         if (!BuildConfig.DEBUG)
             Fabric.with(this, new Crashlytics());
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-4066588899283566~8990047332");
+
         initShare();
         initInstabug();
     }

@@ -33,8 +33,6 @@
     <string name="hide_ads_tip">确定要隐藏广告吗？</string>
     <string name="hided_ads">广告已被隐藏</string>
 
-    <string name="ads_id" translatable="false">ca-app-pub-4066588899283566/1466780534</string>
-
     <!--设置-->
     <string name="launch">启动</string>
     <string name="clean_data">清除应用数据</string>
