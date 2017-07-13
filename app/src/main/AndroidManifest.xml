@@ -43,9 +43,6 @@
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="${Umeng_key}"/>
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="${Channel_ID}"/>
 
         <!--weixin-->
         <activity
