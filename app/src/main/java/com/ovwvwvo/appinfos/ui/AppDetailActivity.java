@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.presenter.AppDetailPresenter;
 import com.ovwvwvo.jkit.weight.ToastMaster;
@@ -44,8 +42,6 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
     TextView appName;
     @BindView(R.id.app_version)
     TextView appVersion;
-    @BindView(R.id.adView)
-    AdView mAdView;
 
     private AppDetailPresenter presenter;
 
@@ -66,13 +62,6 @@ public class AppDetailActivity extends BaseActivity implements AppBarLayout.OnOf
         presenter = new AppDetailPresenter();
 
         initData();
-
-        initAd();
-    }
-
-    private void initAd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
     }
 
     private void initData() {

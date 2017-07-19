@@ -10,16 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.AdView;
 import com.ovwvwvo.appinfos.R;
 import com.ovwvwvo.appinfos.adapter.AppListItemAdapter;
 import com.ovwvwvo.appinfos.adapter.HomeAdapter;
 import com.ovwvwvo.appinfos.model.AppInfoModel;
 import com.ovwvwvo.appinfos.model.event.InstallEvent;
 import com.ovwvwvo.appinfos.model.event.UnInstallEvent;
-import com.ovwvwvo.appinfos.model.perference.SettingPreference;
 import com.ovwvwvo.appinfos.presenter.AppListPresenter;
 import com.ovwvwvo.appinfos.view.AppListView;
 
@@ -42,6 +40,8 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
     SwipeRefreshLayout refreshLayout;
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
+    @BindView(R.id.adView)
+    AdView mAdView;
 
     private static final String POSITION = "POSITION";
 
@@ -49,7 +49,6 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
     private AppListPresenter presenter;
     private int position;
 
-    private InterstitialAd mInterstitialAd;
 
     public static AppListFragment newInstance(int position) {
         AppListFragment instance = new AppListFragment();
@@ -65,10 +64,7 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         position = getArguments().getInt(POSITION, HomeAdapter.ME);
         presenter = new AppListPresenter(this);
         presenter.getAppList(position);
-
-        initAds();
     }
-
 
     @Override
     public void onStart() {
@@ -96,7 +92,13 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         adapter = new AppListItemAdapter(getContext());
         adapter.setListener(this);
         recyclerView.setAdapter(adapter);
+        initAd();
         return view;
+    }
+
+    private void initAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
@@ -111,42 +113,19 @@ public class AppListFragment extends BaseFragment implements AppListView, SwipeR
         adapter.setModels(models);
     }
 
-    public void initAds() {
-        mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId(getString(R.string.ads_id));
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                requestNewInterstitial();
-            }
-        });
-        requestNewInterstitial();
-    }
-
     public List<AppInfoModel> getModels() {
         return adapter.getModels();
     }
 
     @Override
     public void onItemClick(AppInfoModel model) {
-        if (mInterstitialAd.isLoaded() && SettingPreference.getDisplayAds(getContext())) {
-            mInterstitialAd.show();
-        } else {
-            gotoAppInfoDetail(model.getPackageName());
-        }
+        gotoAppInfoDetail(model.getPackageName());
     }
 
     private void gotoAppInfoDetail(String packageName) {
         Intent intent = new Intent(getActivity(), AppDetailActivity.class);
         intent.putExtra(AppDetailActivity.PACKAGE_NAME, packageName);
         startActivity(intent);
-    }
-
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-            .build();
-        mInterstitialAd.loadAd(adRequest);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

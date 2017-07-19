@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ads_id" translatable="false">ca-app-pub-4066588899283566/1466780534</string>
+    <string name="ads_interstitial_id" translatable="false">ca-app-pub-4066588899283566/1466780534</string>
     <string name="ads_banner_id" translatable="false">ca-app-pub-4066588899283566/3645808937</string>
 </resources>
