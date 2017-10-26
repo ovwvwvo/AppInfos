@@ -35,6 +35,8 @@
 
     <!--设置-->
     <string name="launch">启动</string>
+    <string name="appinfo_by_rawer" translatable="false">AppInfo by rawer</string>
+
     <string name="clean_data">清除应用数据</string>
     <string name="clean_internal_cache">清楚外部缓存</string>
     <string name="clean_external_cache">清除内部缓存</string>
