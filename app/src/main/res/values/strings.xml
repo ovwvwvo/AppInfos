@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">AppInfos</string>
 
+    <string name="copyright" translatable="false">%s by rawer</string>
+
     <string name="sure">确定</string>
     <string name="cancel">取消</string>
 
@@ -29,13 +31,11 @@
     <string name="display_ads">显示广告（用来捐赠开发者）</string>
     <string name="feedback">意见反馈</string>
 
-
     <string name="hide_ads_tip">确定要隐藏广告吗？</string>
     <string name="hided_ads">广告已被隐藏</string>
 
     <!--设置-->
     <string name="launch">启动</string>
-    <string name="appinfo_by_rawer" translatable="false">AppInfo by rawer</string>
 
     <string name="clean_data">清除应用数据</string>
     <string name="clean_internal_cache">清楚外部缓存</string>

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ovwvwvo.appinfos.R;
 
@@ -20,12 +21,16 @@ public class SplashActivity extends BaseActivity {
 
     @BindView(R.id.iv)
     ImageView imageView;
+    @BindView(R.id.copyright)
+    TextView copyright_tv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+        copyright_tv.setText(String.format(getString(R.string.copyright), getString(R.string.app_name)));
+
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         imageView.startAnimation(anim);
         anim.setAnimationListener(new Animation.AnimationListener() {
